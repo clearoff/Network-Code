@@ -1,0 +1,44 @@
+***LOGFILE(Apr  6 2017 - 07:41:34)***
+
+IP Header
+   |-IP Version        : 0
+   |-IP Header Length  : 0 DWORDS or 0 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 17408  Bytes(size of Packet)
+   |-Identification    : 64
+   |-TTL      : 17
+   |-Protocol : 6
+   |-Checksum : 44766
+   |-Source IP        : 24.85.227.255
+   |-Destination IP   : 255.255.255.151
+
+TCP Header
+   |-Source Port      : 0
+   |-Destination Port : 17408
+   |-Sequence Number    : 4194368
+   |-Acknowledge Number : 285650654
+   |-Header Length      : 1 DWORDS or 4 BYTES
+   |-Urgent Flag          : 0
+   |-Acknowledgement Flag : 1
+   |-Push Flag            : 0
+   |-Reset Flag           : 1
+   |-Synchronise Flag     : 0
+   |-Finish Flag          : 1
+   |-Window         : 58367
+   |-Checksum       : 65535
+   |-Urgent Pointer : 38911
+
+                        DATA Dump                         
+IP Header
+TCP Header
+
+ 00 00 44 00
+Data Payload
+
+ 00 40 00 40 11 06 AE DE 18 55 E3 FF FF FF FF 97
+ 85 07 9B 00 30 F0 03 31 46 59 65 74 41 61 41 33
+ 4E 42 45 30 56 49 66 48 41 38 66 69 66 67 73 49
+ 44 53 4D 66 58 6C 58 54 34 2B 53 49 63 63 41 49
+ 46 4A 46 44 41 41 00 20 41 42 41 43 46 50
+
+###########################################################

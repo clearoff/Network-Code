@@ -1,0 +1,45 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BLUE_COLOR	tools.h	13;"	d
+CC	Makefile	/^CC=gcc$/;"	m
+CLEARSCREEN	tools.h	8;"	d
+ETH_P_IP	sniffer.h	4;"	d
+GREEN_COLOR	tools.h	11;"	d
+INITCOLOR	tools.h	9;"	d
+NAME	Makefile	/^NAME=sniffer$/;"	m
+OBJS	Makefile	/^OBJS=$(SRCS:.c=.o)$/;"	m
+PrintData	Show_Packet.c	/^void PrintData(unsigned char *buf, int size, t_sniffer *sniffer)$/;"	f
+ProcessPacket	main.c	/^void ProcessPacket(unsigned char* buf,int size,t_sniffer *sniffer)$/;"	f
+RED_COLOR	tools.h	10;"	d
+RM	Makefile	/^RM=rm -rf$/;"	m
+SRCS	Makefile	/^SRCS=main.c Show_Packet.c$/;"	m
+SignalWhiteNow	main.c	/^void SignalWhiteNow(int signum)$/;"	f
+YELLOW_COLOR	tools.h	12;"	d
+ZERO_COLOR	tools.h	14;"	d
+__SNIFFER_H__	sniffer.h	2;"	d
+__TOOLS_H__	tools.h	2;"	d
+command_interpreter	main.c	/^int command_interpreter(int sd)$/;"	f
+display_time_and_date	main.c	/^void display_time_and_date()$/;"	f
+exec_cmd	main.c	/^int exec_cmd(char* buf,int len)$/;"	f
+getting_started	main.c	/^void getting_started()$/;"	f
+icmp	sniffer.h	/^		int	icmp;$/;"	m	struct:s_protocol
+igmp	sniffer.h	/^		int	igmp;$/;"	m	struct:s_protocol
+logfile	sniffer.h	/^		FILE* logfile;$/;"	m	struct:s_sniffer
+main	main.c	/^int main()$/;"	f
+others	sniffer.h	/^		int	others;$/;"	m	struct:s_protocol
+print_icmp_packet	Show_Packet.c	/^void print_icmp_packet(unsigned char *buf , int size, t_sniffer *sniffer)$/;"	f
+print_ip_header	Show_Packet.c	/^void print_ip_header(unsigned char *buf, int size, t_sniffer *sniffer)$/;"	f
+print_tcp_packet	Show_Packet.c	/^void print_tcp_packet(unsigned char *buf, int size, t_sniffer *sniffer)$/;"	f
+print_udp_packet	Show_Packet.c	/^void print_udp_packet(unsigned char *buf , int size, t_sniffer *sniffer)$/;"	f
+prot	sniffer.h	/^		t_protocol *prot;$/;"	m	struct:s_sniffer
+s_protocol	sniffer.h	/^typedef struct	s_protocol$/;"	s
+s_sniffer	sniffer.h	/^typedef struct	s_sniffer$/;"	s
+t_protocol	sniffer.h	/^} t_protocol;$/;"	t	typeref:struct:s_protocol
+t_sniffer	sniffer.h	/^} t_sniffer;$/;"	t	typeref:struct:s_sniffer
+tcp	sniffer.h	/^		int	tcp;$/;"	m	struct:s_protocol
+total	sniffer.h	/^		int	total;$/;"	m	struct:s_protocol
+udp	sniffer.h	/^		int	udp;$/;"	m	struct:s_protocol

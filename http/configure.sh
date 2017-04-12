@@ -46,8 +46,10 @@ ${SERVER_NAME}:${OBJ}
 clean:
 	rm -rf ${OBJ} ${SERVER_NAME} ${LOG} ${OUT} ${PID}
 	cd ${WWW_PATH}/cgi;make clean; cd -
+	cd ${ROOT_PATH}/testsql make clean; cd -
 .PHONY:output
 output:all
+	touch log
 	rm -rf ${OUT}
 	mkdir ${OUT} 
 	cp ${CONF} ${OUT}/ -R 

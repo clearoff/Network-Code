@@ -18,4 +18,5 @@ output:all
 	cd /home/lzh/code/http/wwwroot/cgi/ ;make;cd -
 	mv httpd output/
 	mv log output/
+	cd /home/lzh/code/http/testsql;make;cp cgi_sql /home/lzh/code/http/wwwroot/cgi/;cd -
 	cp /home/lzh/code/http/wwwroot output/ -R

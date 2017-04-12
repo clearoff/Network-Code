@@ -6,7 +6,7 @@ mysql::mysql()
 	//create mysql handle
 	if(NULL==mysql_init(&conn))
 	{
-		cout<<"Init failed"<<endl;
+		cout<<"<h3>Init failed</h3><br/>"<<endl;
 	}
 	cout<<"Init Success"<<endl;
 }
@@ -17,11 +17,11 @@ int mysql::Connect()
 	MYSQL *tmp =mysql_real_connect(&conn,"0","root","960324","student_info",3306,\
 			"NULL",0);
 	if(NULL==tmp){
-		cout<<"connect sql failed"<<endl;
+		cout<<"<h3>connect sql failed</h3><br/>"<<endl;
 		return 0;
 	}
 	else{
-		cout<<"connect sql success"<<endl;
+		cout<<"<h3>connect sql success</h3><br/>"<<endl;
 		return 1;
 	}
 }
@@ -29,7 +29,7 @@ int mysql::Connect()
 mysql::~mysql()
 {
 	mysql_close(&conn);
-	cout<<"sqldb link is closed"<<endl;
+	cout<<"<h3>sqldb link is closed</h3><br/>"<<endl;
 }
 
 int mysql:: Insert(const char* name,const char* sex,const char* major)
@@ -75,9 +75,9 @@ int mysql:: Select()
 		int i=0;
 		for(i=0;i<rownum;i++)
 		{
-			cout<<row[i]<<"\t";
+			cout<<"<h3>"<<row[i]<<"\t"<<"</h3>";
 		}
-		cout<<endl;
+		cout<<endl<<"<br/>";
 	}
 	mysql_free_result(res);
 }

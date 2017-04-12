@@ -6,11 +6,19 @@
 		<p>
 			<img src="./pika.jpg" width="50" height="50" />
 		</p>
+			<h2>Insert data!<br/></h2>
 			<form action="/cgi/cgi_sql", method="POST">
 				Please Enter Your name: <input type="text" name="v1"/><br>
 				Please Enter Your sex: <input type="text" name="v2"/><br>
 				Please Enter Your major: <input type="text" name="v3"/><br>
-				<input type="submit" value="submit"/>
+				<input type="submit" value="Insert"/>
 			</form>
+			<h2>select data!<br/></h2>
+			<form action="/cgi/cgi_show", method="POST">
+				Please Enter Your name: <input type="text" name="v1"/><br>
+				<input type="submit" value="Select"/>
+			</form>
+	</body>
+</html>
 	</body>
 </html>

@@ -7,7 +7,6 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <cstdlib>
-#include "../Json/DataType.h"
 
 class UdpClient{
 	private:

@@ -46,12 +46,12 @@ int UdpClient::SendData(std::string& inmsg)
 	peer.sin_family = AF_INET;
 	peer.sin_port = htons(peer_port);
 	peer.sin_addr.s_addr = inet_addr(peer_ip.c_str());
-	Json::Value val;
-	DataType::StrToValue(inmsg,val);
-	DataType people("fly pig","SUST","None",val["cmd"].asString());
-	std::string msg;
-	people.ValToString(msg);
-	ssize_t _s=sendto(peer_sock, msg.c_str(),msg.size(), 0,\
+	//Json::Value val;
+	//DataType::StrToValue(inmsg,val);
+	//DataType people("fly pig","SUST","None",val["cmd"].asString());
+	//std::string msg;
+	//people.ValToString(msg);
+	ssize_t _s=sendto(peer_sock, inmsg.c_str(),inmsg.size(), 0,\
 			(struct sockaddr*)&peer, sizeof(peer));
 	if(_s < 0){
 		cout<<"Sendto error"<<endl;

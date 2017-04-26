@@ -32,7 +32,6 @@ void UdpServer::Init()
 bool UdpServer::RecvData(std::string& outmsg)
 {
 	char buf[1024];
-	cout<<"Recv Data"<<endl;
 	struct sockaddr_in remote;
 	socklen_t len=sizeof(remote);
 	ssize_t _s = recvfrom(_sock,buf,sizeof(buf),0,(struct sockaddr*)\

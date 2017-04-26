@@ -8,13 +8,13 @@ DataType::DataType(const string _name,const string _school,const string _cmd,con
 {}
 DataType::~DataType()
 {}
-void DataType::ValToString(std::string& out)
+void DataType::ValToString(const Json::Value val,std::string& out)
 {
-	Json::Value val;
-	val["name"]=name;
-	val["school"]=school;
-	val["cmd"]=cmd;
-	val["msg"]=msg;
+//	Json::Value val;
+//	val["name"]=name;
+//	val["school"]=school;
+//	val["cmd"]=cmd;
+//	val["msg"]=msg;
 	JsonApi::Serialize(val,out);
 }
 void DataType::StrToValue(const std::string& str,Json::Value& out)

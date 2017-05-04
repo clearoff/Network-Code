@@ -1,0 +1,29 @@
+gcc -o pool thread_pool.c condition.c -lpthread
+thread_pool.c: In function ‘threadpool_destroy’:
+thread_pool.c:131:25: error: ‘threadpool_t’ has no member named ‘ready’
+  condition_destroy(&pool->ready);
+                         ^
+thread_pool.c: In function ‘main’:
+thread_pool.c:149:2: error: unknown type name ‘threadPool_t’
+  threadPool_t pool;
+  ^
+thread_pool.c:150:2: warning: passing argument 1 of ‘threadPool_init’ from incompatible pointer type [enabled by default]
+  threadPool_init(&pool,3);
+  ^
+thread_pool.c:61:6: note: expected ‘struct threadpool_t *’ but argument is of type ‘int *’
+ void threadPool_init(threadpool_t *pool,int threads)
+      ^
+thread_pool.c:156:3: warning: passing argument 1 of ‘threadPool_addtask’ from incompatible pointer type [enabled by default]
+   threadPool_addtask(&pool,mytask,arg);
+   ^
+thread_pool.c:73:6: note: expected ‘struct threadpool_t *’ but argument is of type ‘int *’
+ void threadPool_addtask(threadpool_t* pool,void *(*run)(void* arg),void* arg)
+      ^
+thread_pool.c:158:2: warning: passing argument 1 of ‘threadPool_destroy’ from incompatible pointer type [enabled by default]
+  threadPool_destroy(&pool);
+  ^
+In file included from thread_pool.c:1:0:
+thread_pool.h:32:6: note: expected ‘struct threadpool_t *’ but argument is of type ‘int *’
+ void threadPool_destroy(threadpool_t* pool);
+      ^
+make: *** [pool] Error 1

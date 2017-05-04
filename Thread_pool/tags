@@ -1,0 +1,41 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+_CONDITION_H_	condition.h	2;"	d
+_DEBUG_	thread_pool.c	136;"	d	file:
+_THREAD_POOL_H_	thread_pool.h	2;"	d
+arg	thread_pool.h	/^	void *arg;				   \/\/线程函数的参数$/;"	m	struct:task
+condition	condition.h	/^typedef struct condition$/;"	s
+condition_broadcast	condition.c	/^int condition_broadcast(condition_t *cond)$/;"	f
+condition_destroy	condition.c	/^int condition_destroy(condition_t *cond)$/;"	f
+condition_init	condition.c	/^int condition_init(condition_t *cond)$/;"	f
+condition_lock	condition.c	/^int condition_lock(condition_t *cond)$/;"	f
+condition_signal	condition.c	/^int condition_signal(condition_t *cond)$/;"	f
+condition_t	condition.h	/^}condition_t;$/;"	t	typeref:struct:condition
+condition_timewait	condition.c	/^int condition_timewait(condition_t *cond, const struct timespec *abstime)$/;"	f
+condition_unlock	condition.c	/^int condition_unlock(condition_t *cond)$/;"	f
+condition_wait	condition.c	/^int condition_wait(condition_t *cond)$/;"	f
+count	thread_pool.h	/^	int count;$/;"	m	struct:threadpool
+first	thread_pool.h	/^	task_t *first;$/;"	m	struct:threadpool
+idle	thread_pool.h	/^	int idle;	\/\/???$/;"	m	struct:threadpool
+last	thread_pool.h	/^	task_t *last;$/;"	m	struct:threadpool
+main	thread_pool.c	/^int main()$/;"	f
+maxThread	thread_pool.h	/^	int maxThread;$/;"	m	struct:threadpool
+mytask	thread_pool.c	/^void* mytask(void * arg)$/;"	f
+next	thread_pool.h	/^	struct task *next;$/;"	m	struct:task	typeref:struct:task::task
+pcond	condition.h	/^    pthread_cond_t pcond;$/;"	m	struct:condition
+pmutex	condition.h	/^    pthread_mutex_t pmutex;$/;"	m	struct:condition
+quit	thread_pool.h	/^	int quit;$/;"	m	struct:threadpool
+run	thread_pool.h	/^	void *(*run)(void *args);  \/\/function pointers$/;"	m	struct:task
+status	thread_pool.h	/^	condition_t status;	\/\/describe thread status$/;"	m	struct:threadpool
+task	thread_pool.h	/^typedef struct task$/;"	s
+task_t	thread_pool.h	/^}task_t;$/;"	t	typeref:struct:task
+threadPool_addtask	thread_pool.c	/^void threadPool_addtask(threadpool_t* pool,void *(*run)(void* arg),void* arg)$/;"	f
+threadPool_init	thread_pool.c	/^void threadPool_init(threadpool_t *pool,int threads)$/;"	f
+thread_routine	thread_pool.c	/^static void *thread_routine(void* arg)$/;"	f	file:
+threadpool	thread_pool.h	/^typedef struct threadpool$/;"	s
+threadpool_destroy	thread_pool.c	/^void threadpool_destroy(threadpool_t *pool)$/;"	f
+threadpool_t	thread_pool.h	/^}threadpool_t;$/;"	t	typeref:struct:threadpool

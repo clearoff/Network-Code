@@ -9,6 +9,7 @@
 #include <arpa/inet.h>
 #include <cstdlib>
 #include <map>
+#include <unistd.h>
 #include "../pool/pool.h"
 
 class UdpServer{
@@ -21,7 +22,7 @@ class UdpServer{
 	private:
 		UdpServer(const UdpServer&);
 	public:
-		UdpServer(const std::string ip,const int port);
+		UdpServer(const std::string& ip,const int& port);
 		void Init();
 		bool RecvData(std::string&);
 		bool broadCast(std::string&);

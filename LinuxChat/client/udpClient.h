@@ -7,6 +7,8 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <cstdlib>
+#include <signal.h>
+#include <set>
 
 class UdpClient{
 	private:
@@ -14,6 +16,7 @@ class UdpClient{
 		int peer_port;
 		std::string peer_ip;
 	public:
+		std::set<std::string> users;	
 		UdpClient();
 		UdpClient(const std::string& ip,const int& port);
 		int RecvData(std::string&);

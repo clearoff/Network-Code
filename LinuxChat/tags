@@ -4,74 +4,741 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+AF_LOCAL	hiredis/net.h	41;"	d
 CC	Makefile	/^CC=g++$/;"	m
+CC	hiredis/Makefile	/^CC:=$(shell sh -c 'type $(CC) >\/dev\/null 2>\/dev\/null && echo $(CC) || echo gcc')$/;"	m
 CLIENT_BIN	Makefile	/^CLIENT_BIN=udpClient$/;"	m
 CLIENT_OBJ	Makefile	/^CLIENT_OBJ=$(shell echo $(CLIENT_SRC) | sed 's\/\\.cpp\/\\.o\/g')$/;"	m
 CLIENT_PATH	Makefile	/^CLIENT_PATH=$(ROOT_PATH)\/client$/;"	m
-CLIENT_SRC	Makefile	/^CLIENT_SRC=$(shell ls $(CLIENT_PATH) | egrep -v '^.*h')$/;"	m
+CLIENT_SRC	Makefile	/^CLIENT_SRC=$(shell ls $(CLIENT_PATH) $(JSON_PATH) $(WINDOW_PATH)| egrep -v '^.*h')$/;"	m
 COMM_PATH	Makefile	/^COMM_PATH=$(ROOT_PATH)\/comm$/;"	m
+CONN_FD	hiredis/test.c	/^    CONN_FD$/;"	e	enum:connection_type	file:
+CONN_TCP	hiredis/test.c	/^    CONN_TCP,$/;"	e	enum:connection_type	file:
+CONN_UNIX	hiredis/test.c	/^    CONN_UNIX,$/;"	e	enum:connection_type	file:
+CXX	hiredis/Makefile	/^CXX:=$(shell sh -c 'type $(CXX) >\/dev\/null 2>\/dev\/null && echo $(CXX) || echo g++')$/;"	m
+DEBUG_FLAGS	hiredis/Makefile	/^DEBUG_FLAGS?= -g -ggdb$/;"	m
+DICT_ERR	hiredis/dict.h	40;"	d
+DICT_HT_INITIAL_SIZE	hiredis/dict.h	76;"	d
+DICT_NOTUSED	hiredis/dict.h	43;"	d
+DICT_OK	hiredis/dict.h	39;"	d
+DYLIBNAME	hiredis/Makefile	/^DYLIBNAME=$(LIBNAME).$(DYLIBSUFFIX)$/;"	m
+DYLIBSUFFIX	hiredis/Makefile	/^  DYLIBSUFFIX=dylib$/;"	m
+DYLIBSUFFIX	hiredis/Makefile	/^DYLIBSUFFIX=so$/;"	m
+DYLIB_MAJOR_NAME	hiredis/Makefile	/^DYLIB_MAJOR_NAME=$(LIBNAME).$(DYLIBSUFFIX).$(HIREDIS_MAJOR)$/;"	m
+DYLIB_MAKE_CMD	hiredis/Makefile	/^  DYLIB_MAKE_CMD=$(CC) -G -o $(DYLIBNAME) -h $(DYLIB_MINOR_NAME) $(LDFLAGS)$/;"	m
+DYLIB_MAKE_CMD	hiredis/Makefile	/^  DYLIB_MAKE_CMD=$(CC) -shared -Wl,-install_name,$(DYLIB_MINOR_NAME) -o $(DYLIBNAME) $(LDFLAGS)$/;"	m
+DYLIB_MAKE_CMD	hiredis/Makefile	/^DYLIB_MAKE_CMD=$(CC) -shared -Wl,-soname,$(DYLIB_MINOR_NAME) -o $(DYLIBNAME) $(LDFLAGS)$/;"	m
+DYLIB_MINOR_NAME	hiredis/Makefile	/^  DYLIB_MINOR_NAME=$(LIBNAME).$(HIREDIS_SONAME).$(DYLIBSUFFIX)$/;"	m
+DYLIB_MINOR_NAME	hiredis/Makefile	/^DYLIB_MINOR_NAME=$(LIBNAME).$(DYLIBSUFFIX).$(HIREDIS_SONAME)$/;"	m
 DataType	Json/DataType.cpp	/^DataType::DataType(const string _name,const string _school,const string _cmd,const string _msg):$/;"	f	class:DataType
+DataType	Json/DataType.h	/^		DataType()$/;"	f	class:DataType
 DataType	Json/DataType.h	/^class DataType{$/;"	c
+EXAMPLES	hiredis/Makefile	/^EXAMPLES=hiredis-example hiredis-example-libevent hiredis-example-libev hiredis-example-glib$/;"	m
+ExampleQt	hiredis/examples/example-qt.h	/^        ExampleQt(const char * value, QObject * parent = 0)$/;"	f	class:ExampleQt
+ExampleQt	hiredis/examples/example-qt.h	/^class ExampleQt : public QObject {$/;"	c
+FLOAT_WIDTH_TEST	hiredis/test.c	183;"	d	file:
 GetData	pool/pool.cpp	/^void Pool::GetData(string& outmsg)$/;"	f	class:Pool
+HIREDIS_MAJOR	hiredis/Makefile	/^HIREDIS_MAJOR=$(shell grep HIREDIS_MAJOR hiredis.h | awk '{print $$3}')$/;"	m
+HIREDIS_MAJOR	hiredis/hiredis.h	42;"	d
+HIREDIS_MINOR	hiredis/Makefile	/^HIREDIS_MINOR=$(shell grep HIREDIS_MINOR hiredis.h | awk '{print $$3}')$/;"	m
+HIREDIS_MINOR	hiredis/hiredis.h	43;"	d
+HIREDIS_PATCH	hiredis/Makefile	/^HIREDIS_PATCH=$(shell grep HIREDIS_PATCH hiredis.h | awk '{print $$3}')$/;"	m
+HIREDIS_PATCH	hiredis/hiredis.h	44;"	d
+HIREDIS_SONAME	hiredis/Makefile	/^HIREDIS_SONAME=$(shell grep HIREDIS_SONAME hiredis.h | awk '{print $$3}')$/;"	m
+HIREDIS_SONAME	hiredis/hiredis.h	45;"	d
+INCLUDE_PATH	hiredis/Makefile	/^INCLUDE_PATH?=include\/hiredis$/;"	m
+INSTALL	hiredis/Makefile	/^  INSTALL= cp -r$/;"	m
+INSTALL	hiredis/Makefile	/^  INSTALL?= cp -r$/;"	m
+INSTALL	hiredis/Makefile	/^INSTALL?= cp -a$/;"	m
+INSTALL_INCLUDE_PATH	hiredis/Makefile	/^INSTALL_INCLUDE_PATH= $(DESTDIR)$(PREFIX)\/$(INCLUDE_PATH)$/;"	m
+INSTALL_LIBRARY_PATH	hiredis/Makefile	/^INSTALL_LIBRARY_PATH= $(DESTDIR)$(PREFIX)\/$(LIBRARY_PATH)$/;"	m
+INSTALL_PKGCONF_PATH	hiredis/Makefile	/^INSTALL_PKGCONF_PATH= $(INSTALL_LIBRARY_PATH)\/$(PKGCONF_PATH)$/;"	m
+INTEGER_WIDTH_TEST	hiredis/test.c	174;"	d	file:
 Init	client/udpClient.cpp	/^void UdpClient::Init()$/;"	f	class:UdpClient
 Init	server/udpServer.cpp	/^void UdpServer::Init()$/;"	f	class:UdpServer
+JSON_PATH	Makefile	/^JSON_PATH=$(ROOT_PATH)\/Json$/;"	m
 JsonApi	Json/JsonApi.h	/^class JsonApi{$/;"	c
+LIBNAME	hiredis/Makefile	/^LIBNAME=libhiredis$/;"	m
+LIBRARY_PATH	hiredis/Makefile	/^LIBRARY_PATH?=lib$/;"	m
 LOG_PATH	Makefile	/^LOG_PATH=$(ROOT_PATH)\/log$/;"	m
+OBJ	hiredis/Makefile	/^OBJ=net.o hiredis.o sds.o async.o read.o$/;"	m
+OPTIMIZATION	hiredis/Makefile	/^OPTIMIZATION?=-O3$/;"	m
+PKGCONFNAME	hiredis/Makefile	/^PKGCONFNAME=hiredis.pc$/;"	m
+PKGCONF_PATH	hiredis/Makefile	/^PKGCONF_PATH?=pkgconfig$/;"	m
 POOL_PATH	Makefile	/^POOL_PATH=$(ROOT_PATH)\/pool$/;"	m
+PREFIX	hiredis/Makefile	/^PREFIX?=\/usr\/local$/;"	m
 Pool	pool/pool.cpp	/^Pool::Pool()$/;"	f	class:Pool
 Pool	pool/pool.h	/^class Pool{$/;"	c
 PutData	pool/pool.cpp	/^void Pool::PutData(const string& inmsg)$/;"	f	class:Pool
+REAL_CFLAGS	hiredis/Makefile	/^REAL_CFLAGS=$(OPTIMIZATION) -fPIC $(CFLAGS) $(WARNINGS) $(DEBUG_FLAGS) $(ARCH)$/;"	m
+REAL_LDFLAGS	hiredis/Makefile	/^REAL_LDFLAGS=$(LDFLAGS) $(ARCH)$/;"	m
+REDIS_BLOCK	hiredis/hiredis.h	49;"	d
+REDIS_CONNECTED	hiredis/hiredis.h	53;"	d
+REDIS_CONNECT_RETRIES	hiredis/hiredis.h	81;"	d
+REDIS_CONN_TCP	hiredis/hiredis.h	/^    REDIS_CONN_TCP,$/;"	e	enum:redisConnectionType
+REDIS_CONN_UNIX	hiredis/hiredis.h	/^    REDIS_CONN_UNIX$/;"	e	enum:redisConnectionType
+REDIS_DISCONNECTING	hiredis/hiredis.h	59;"	d
+REDIS_ERR	hiredis/read.h	37;"	d
+REDIS_ERR_EOF	hiredis/read.h	45;"	d
+REDIS_ERR_IO	hiredis/read.h	44;"	d
+REDIS_ERR_OOM	hiredis/read.h	47;"	d
+REDIS_ERR_OTHER	hiredis/read.h	48;"	d
+REDIS_ERR_PROTOCOL	hiredis/read.h	46;"	d
+REDIS_FREEING	hiredis/hiredis.h	63;"	d
+REDIS_IN_CALLBACK	hiredis/hiredis.h	66;"	d
+REDIS_KEEPALIVE_INTERVAL	hiredis/hiredis.h	77;"	d
+REDIS_MONITORING	hiredis/hiredis.h	72;"	d
+REDIS_OK	hiredis/read.h	38;"	d
+REDIS_PORT	hiredis/Makefile	/^REDIS_PORT=56379$/;"	m
+REDIS_READER_MAX_BUF	hiredis/read.h	57;"	d
+REDIS_REPLY_ARRAY	hiredis/read.h	51;"	d
+REDIS_REPLY_ERROR	hiredis/read.h	55;"	d
+REDIS_REPLY_INTEGER	hiredis/read.h	52;"	d
+REDIS_REPLY_NIL	hiredis/read.h	53;"	d
+REDIS_REPLY_STATUS	hiredis/read.h	54;"	d
+REDIS_REPLY_STRING	hiredis/read.h	50;"	d
+REDIS_REUSEADDR	hiredis/hiredis.h	75;"	d
+REDIS_SERVER	hiredis/Makefile	/^REDIS_SERVER=redis-server$/;"	m
+REDIS_SUBSCRIBED	hiredis/hiredis.h	69;"	d
+REDIS_TEST_CONFIG	hiredis/Makefile	/^define REDIS_TEST_CONFIG$/;"	m
 ROOT_PATH	Makefile	/^ROOT_PATH=$(shell pwd)$/;"	m
 RecvData	client/udpClient.cpp	/^int UdpClient::RecvData(std::string& outmsg)$/;"	f	class:UdpClient
 RecvData	server/udpServer.cpp	/^bool UdpServer::RecvData(std::string& outmsg)$/;"	f	class:UdpServer
+RedisQtAdapter	hiredis/adapters/qt.h	/^        RedisQtAdapter(QObject * parent = 0)$/;"	f	class:RedisQtAdapter
+RedisQtAdapter	hiredis/adapters/qt.h	/^class RedisQtAdapter : public QObject {$/;"	c
+RedisQtAddRead	hiredis/adapters/qt.h	/^    void RedisQtAddRead(void * adapter) {$/;"	f	class:RedisQtAdapter
+RedisQtAddWrite	hiredis/adapters/qt.h	/^    void RedisQtAddWrite(void * adapter) {$/;"	f	class:RedisQtAdapter
+RedisQtCleanup	hiredis/adapters/qt.h	/^    void RedisQtCleanup(void * adapter) {$/;"	f	class:RedisQtAdapter
+RedisQtDelRead	hiredis/adapters/qt.h	/^    void RedisQtDelRead(void * adapter) {$/;"	f	class:RedisQtAdapter
+RedisQtDelWrite	hiredis/adapters/qt.h	/^    void RedisQtDelWrite(void * adapter) {$/;"	f	class:RedisQtAdapter
+RedisRunLoop	hiredis/adapters/macosx.h	/^} RedisRunLoop;$/;"	t	typeref:struct:__anon7
+RedisSource	hiredis/adapters/glib.h	/^} RedisSource;$/;"	t	typeref:struct:__anon8
+SDS_HDR	hiredis/sds.h	83;"	d
+SDS_HDR_VAR	hiredis/sds.h	82;"	d
+SDS_LLSTR_SIZE	hiredis/sds.c	428;"	d	file:
+SDS_MAX_PREALLOC	hiredis/sds.h	36;"	d
+SDS_TYPE_16	hiredis/sds.h	77;"	d
+SDS_TYPE_32	hiredis/sds.h	78;"	d
+SDS_TYPE_5	hiredis/sds.h	75;"	d
+SDS_TYPE_5_LEN	hiredis/sds.h	84;"	d
+SDS_TYPE_64	hiredis/sds.h	79;"	d
+SDS_TYPE_8	hiredis/sds.h	76;"	d
+SDS_TYPE_BITS	hiredis/sds.h	81;"	d
+SDS_TYPE_MASK	hiredis/sds.h	80;"	d
 SERVER_BIN	Makefile	/^SERVER_BIN=udpServer$/;"	m
 SERVER_OBJ	Makefile	/^SERVER_OBJ=$(shell echo $(SERVER_SRC) | sed 's\/\\.cpp\/\\.o\/g')$/;"	m
 SERVER_PATH	Makefile	/^SERVER_PATH=$(ROOT_PATH)\/server$/;"	m
 SERVER_SRC	Makefile	/^SERVER_SRC=$(shell ls $(SERVER_PATH) $(POOL_PATH)| egrep -v '^.*h')$/;"	m
+SIZE	window/window.h	10;"	d
+STLIBNAME	hiredis/Makefile	/^STLIBNAME=$(LIBNAME).$(STLIBSUFFIX)$/;"	m
+STLIBSUFFIX	hiredis/Makefile	/^STLIBSUFFIX=a$/;"	m
+STLIB_MAKE_CMD	hiredis/Makefile	/^STLIB_MAKE_CMD=ar rcs $(STLIBNAME)$/;"	m
 SendData	client/udpClient.cpp	/^int UdpClient::SendData(std::string& inmsg)$/;"	f	class:UdpClient
 Serialize	Json/JsonApi.cpp	/^void JsonApi::Serialize(const Json::Value root,std::string& outstr)$/;"	f	class:JsonApi
 StrToValue	Json/DataType.cpp	/^void DataType::StrToValue(const std::string& str,Json::Value& out)$/;"	f	class:DataType
+TESTS	hiredis/Makefile	/^TESTS=hiredis-test$/;"	m
+UNUSED	hiredis/sds.c	1103;"	d	file:
 UdpClient	client/udpClient.cpp	/^UdpClient::UdpClient(const std::string& ip,const int& port)$/;"	f	class:UdpClient
 UdpClient	client/udpClient.h	/^class UdpClient{$/;"	c
 UdpServer	server/udpServer.cpp	/^UdpServer::UdpServer(const std::string ip,const int port):$/;"	f	class:UdpServer
 UdpServer	server/udpServer.h	/^class UdpServer{$/;"	c
-ValToString	Json/DataType.cpp	/^void DataType::ValToString(const Json::Value& val,std::string& out)$/;"	f	class:DataType
+ValToString	Json/DataType.cpp	/^void DataType::ValToString(const Json::Value val,std::string& out)$/;"	f	class:DataType
+WARNINGS	hiredis/Makefile	/^WARNINGS=-Wall -W -Wstrict-prototypes -Wwrite-strings$/;"	m
 WINDOW_PATH	Makefile	/^WINDOW_PATH=$(ROOT_PATH)\/window$/;"	m
+Window	window/window.cpp	/^Window::Window()$/;"	f	class:Window
+Window	window/window.h	/^class Window{$/;"	c
 _BLANK_	pool/pool.h	9;"	d
+_BSD_SOURCE	hiredis/fmacros.h	5;"	d
 _DATA_TYPE_H_	Json/DataType.h	2;"	d
+_DEFAULT_SOURCE	hiredis/fmacros.h	6;"	d
+_EL_ADD_READ	hiredis/async.c	44;"	d	file:
+_EL_ADD_WRITE	hiredis/async.c	50;"	d	file:
+_EL_CLEANUP	hiredis/async.c	56;"	d	file:
+_EL_DEL_READ	hiredis/async.c	47;"	d	file:
+_EL_DEL_WRITE	hiredis/async.c	53;"	d	file:
 _JSON_H__	Json/JsonApi.h	2;"	d
+_OSX	hiredis/fmacros.h	22;"	d
 _POOL_H__	pool/pool.h	2;"	d
+_POSIX_C_SOURCE	hiredis/fmacros.h	14;"	d
 _UDP_Client_H_	client/udpClient.h	2;"	d
 _UDP_SERVER_H_	server/udpServer.h	2;"	d
+_WIN32_HELPER_INCLUDE	hiredis/win32.h	2;"	d
+_XOPEN_SOURCE	hiredis/fmacros.h	17;"	d
+__DICT_H	hiredis/dict.h	37;"	d
+__HIREDIS_AE_H__	hiredis/adapters/ae.h	32;"	d
+__HIREDIS_ASYNC_H	hiredis/async.h	33;"	d
+__HIREDIS_EXAMPLE_QT_H	hiredis/examples/example-qt.h	2;"	d
+__HIREDIS_FMACRO_H	hiredis/fmacros.h	2;"	d
+__HIREDIS_GLIB_H__	hiredis/adapters/glib.h	2;"	d
+__HIREDIS_H	hiredis/hiredis.h	35;"	d
+__HIREDIS_IVYKIS_H__	hiredis/adapters/ivykis.h	2;"	d
+__HIREDIS_LIBEVENT_H__	hiredis/adapters/libevent.h	32;"	d
+__HIREDIS_LIBEV_H__	hiredis/adapters/libev.h	32;"	d
+__HIREDIS_LIBUV_H__	hiredis/adapters/libuv.h	2;"	d
+__HIREDIS_MACOSX_H__	hiredis/adapters/macosx.h	7;"	d
+__HIREDIS_QT_H__	hiredis/adapters/qt.h	27;"	d
+__HIREDIS_READ_H	hiredis/read.h	34;"	d
+__MAX_MSEC	hiredis/net.c	180;"	d	file:
+__NET_H	hiredis/net.h	36;"	d
+__SDS_H	hiredis/sds.h	34;"	d
+__WINDOW_H__	window/window.h	2;"	d
+__redisAppendCommand	hiredis/hiredis.c	/^int __redisAppendCommand(redisContext *c, const char *cmd, size_t len) {$/;"	f
+__redisAsyncCommand	hiredis/async.c	/^static int __redisAsyncCommand(redisAsyncContext *ac, redisCallbackFn *fn, void *privdata, const char *cmd, size_t len) {$/;"	f	file:
+__redisAsyncCopyError	hiredis/async.c	/^static void __redisAsyncCopyError(redisAsyncContext *ac) {$/;"	f	file:
+__redisAsyncDisconnect	hiredis/async.c	/^static void __redisAsyncDisconnect(redisAsyncContext *ac) {$/;"	f	file:
+__redisAsyncFree	hiredis/async.c	/^static void __redisAsyncFree(redisAsyncContext *ac) {$/;"	f	file:
+__redisAsyncHandleConnect	hiredis/async.c	/^static int __redisAsyncHandleConnect(redisAsyncContext *ac) {$/;"	f	file:
+__redisBlockForReply	hiredis/hiredis.c	/^static void *__redisBlockForReply(redisContext *c) {$/;"	f	file:
+__redisGetSubscribeCallback	hiredis/async.c	/^static int __redisGetSubscribeCallback(redisAsyncContext *ac, redisReply *reply, redisCallback *dstcb) {$/;"	f	file:
+__redisPushCallback	hiredis/async.c	/^static int __redisPushCallback(redisCallbackList *list, redisCallback *source) {$/;"	f	file:
+__redisReaderSetError	hiredis/read.c	/^static void __redisReaderSetError(redisReader *r, int type, const char *str) {$/;"	f	file:
+__redisReaderSetErrorOOM	hiredis/read.c	/^static void __redisReaderSetErrorOOM(redisReader *r) {$/;"	f	file:
+__redisReaderSetErrorProtocolByte	hiredis/read.c	/^static void __redisReaderSetErrorProtocolByte(redisReader *r, char byte) {$/;"	f	file:
+__redisRunCallback	hiredis/async.c	/^static void __redisRunCallback(redisAsyncContext *ac, redisCallback *cb, redisReply *reply) {$/;"	f	file:
+__redisSetError	hiredis/hiredis.c	/^void __redisSetError(redisContext *c, int type, const char *str) {$/;"	f
+__redisSetErrorFromErrno	hiredis/net.c	/^static void __redisSetErrorFromErrno(redisContext *c, int type, const char *prefix) {$/;"	f	file:
+__redisShiftCallback	hiredis/async.c	/^static int __redisShiftCallback(redisCallbackList *list, redisCallback *target) {$/;"	f	file:
+__redis_strerror_r	hiredis/hiredis.h	88;"	d
+__redis_strerror_r	hiredis/hiredis.h	94;"	d
 _blank	pool/pool.h	/^		sem_t _blank;$/;"	m	class:Pool
 _cap	pool/pool.h	/^		int _cap;$/;"	m	class:Pool
 _data	pool/pool.h	/^		sem_t _data;$/;"	m	class:Pool
+_dictClear	hiredis/dict.c	/^static int _dictClear(dict *ht) {$/;"	f	file:
+_dictExpandIfNeeded	hiredis/dict.c	/^static int _dictExpandIfNeeded(dict *ht) {$/;"	f	file:
+_dictInit	hiredis/dict.c	/^static int _dictInit(dict *ht, dictType *type, void *privDataPtr) {$/;"	f	file:
+_dictKeyIndex	hiredis/dict.c	/^static int _dictKeyIndex(dict *ht, const void *key) {$/;"	f	file:
+_dictNextPower	hiredis/dict.c	/^static unsigned long _dictNextPower(unsigned long size) {$/;"	f	file:
+_dictReset	hiredis/dict.c	/^static void _dictReset(dict *ht) {$/;"	f	file:
 _ip	server/udpServer.h	/^		std::string _ip;$/;"	m	class:UdpServer
 _port	server/udpServer.h	/^		int _port;$/;"	m	class:UdpServer
+_redisContextConnectTcp	hiredis/net.c	/^static int _redisContextConnectTcp(redisContext *c, const char *addr, int port,$/;"	f	file:
 _size	pool/pool.h	/^		int _size;$/;"	m	class:Pool
 _sock	server/udpServer.h	/^		int _sock;$/;"	m	class:UdpServer
+ac	hiredis/adapters/glib.h	/^    redisAsyncContext *ac;$/;"	m	struct:__anon8
+addRead	hiredis/adapters/qt.h	/^        void addRead() {$/;"	f	class:RedisQtAdapter
+addRead	hiredis/async.h	/^        void (*addRead)(void *privdata);$/;"	m	struct:redisAsyncContext::__anon1
+addWrite	hiredis/adapters/qt.h	/^        void addWrite() {$/;"	f	class:RedisQtAdapter
+addWrite	hiredis/async.h	/^        void (*addWrite)(void *privdata);$/;"	m	struct:redisAsyncContext::__anon1
+alloc	hiredis/sds.h	/^    uint16_t alloc; \/* excluding the header and null terminator *\/$/;"	m	struct:sdshdr16
+alloc	hiredis/sds.h	/^    uint32_t alloc; \/* excluding the header and null terminator *\/$/;"	m	struct:sdshdr32
+alloc	hiredis/sds.h	/^    uint64_t alloc; \/* excluding the header and null terminator *\/$/;"	m	struct:sdshdr64
+alloc	hiredis/sds.h	/^    uint8_t alloc; \/* excluding the header and null terminator *\/$/;"	m	struct:sdshdr8
+assert	hiredis/test.c	50;"	d	file:
+assert	hiredis/test.c	51;"	d	file:
 broadCast	server/udpServer.cpp	/^bool UdpServer::broadCast(std::string& outmsg)$/;"	f	class:UdpServer
+buf	hiredis/read.h	/^    char *buf; \/* Read buffer *\/$/;"	m	struct:redisReader
+buf	hiredis/sds.h	/^    char buf[];$/;"	m	struct:sdshdr16
+buf	hiredis/sds.h	/^    char buf[];$/;"	m	struct:sdshdr32
+buf	hiredis/sds.h	/^    char buf[];$/;"	m	struct:sdshdr5
+buf	hiredis/sds.h	/^    char buf[];$/;"	m	struct:sdshdr64
+buf	hiredis/sds.h	/^    char buf[];$/;"	m	struct:sdshdr8
+bulklen	hiredis/hiredis.c	/^static size_t bulklen(size_t len) {$/;"	f	file:
+c	hiredis/async.h	/^    redisContext c;$/;"	m	struct:redisAsyncContext
+c99_snprintf	hiredis/win32.h	/^__inline int c99_snprintf(char* str, size_t size, const char* format, ...)$/;"	f
+c99_vsnprintf	hiredis/win32.h	/^__inline int c99_vsnprintf(char* str, size_t size, const char* format, va_list ap)$/;"	f
+callbackDict	hiredis/async.c	/^static dictType callbackDict = {$/;"	v	file:
+callbackHash	hiredis/async.c	/^static unsigned int callbackHash(const void *key) {$/;"	f	file:
+callbackKeyCompare	hiredis/async.c	/^static int callbackKeyCompare(void *privdata, const void *key1, const void *key2) {$/;"	f	file:
+callbackKeyDestructor	hiredis/async.c	/^static void callbackKeyDestructor(void *privdata, void *key) {$/;"	f	file:
+callbackValDestructor	hiredis/async.c	/^static void callbackValDestructor(void *privdata, void *val) {$/;"	f	file:
+callbackValDup	hiredis/async.c	/^static void *callbackValDup(void *privdata, const void *src) {$/;"	f	file:
+channels	hiredis/async.h	/^        struct dict *channels;$/;"	m	struct:redisAsyncContext::__anon2	typeref:struct:redisAsyncContext::__anon2::dict
+chrtos	hiredis/read.c	/^static size_t chrtos(char *buf, size_t size, char byte) {$/;"	f	file:
+cleanup	hiredis/adapters/qt.h	/^        void cleanup() {$/;"	f	class:RedisQtAdapter
+cleanup	hiredis/async.h	/^        void (*cleanup)(void *privdata);$/;"	m	struct:redisAsyncContext::__anon1
+clrWinLine	window/window.cpp	/^void Window::clrWinLine(WINDOW* win,int begin,int lines)$/;"	f	class:Window
 cmd	Json/DataType.h	/^		std::string cmd;$/;"	m	class:DataType
+command_cb	hiredis/examples/example-glib.c	/^command_cb(redisAsyncContext *ac,$/;"	f	file:
+config	hiredis/test.c	/^struct config {$/;"	s	file:
+connect	hiredis/test.c	/^static redisContext *connect(struct config config) {$/;"	f	file:
+connectCallback	hiredis/examples/example-ae.c	/^void connectCallback(const redisAsyncContext *c, int status) {$/;"	f
+connectCallback	hiredis/examples/example-ivykis.c	/^void connectCallback(const redisAsyncContext *c, int status) {$/;"	f
+connectCallback	hiredis/examples/example-libev.c	/^void connectCallback(const redisAsyncContext *c, int status) {$/;"	f
+connectCallback	hiredis/examples/example-libevent.c	/^void connectCallback(const redisAsyncContext *c, int status) {$/;"	f
+connectCallback	hiredis/examples/example-libuv.c	/^void connectCallback(const redisAsyncContext *c, int status) {$/;"	f
+connectCallback	hiredis/examples/example-macosx.c	/^void connectCallback(const redisAsyncContext *c, int status) {$/;"	f
+connect_cb	hiredis/examples/example-glib.c	/^connect_cb (const redisAsyncContext *ac G_GNUC_UNUSED,$/;"	f	file:
+connection_type	hiredis/hiredis.h	/^    enum redisConnectionType connection_type;$/;"	m	struct:redisContext	typeref:enum:redisContext::redisConnectionType
+connection_type	hiredis/test.c	/^enum connection_type {$/;"	g	file:
 consumRun	server/udpServerMain.cpp	/^static void* consumRun(void* arg)$/;"	f	file:
 consumStep	pool/pool.h	/^		int consumStep;$/;"	m	class:Pool
+context	hiredis/adapters/ae.h	/^    redisAsyncContext *context;$/;"	m	struct:redisAeEvents
+context	hiredis/adapters/ivykis.h	/^    redisAsyncContext *context;$/;"	m	struct:redisIvykisEvents
+context	hiredis/adapters/libev.h	/^    redisAsyncContext *context;$/;"	m	struct:redisLibevEvents
+context	hiredis/adapters/libevent.h	/^    redisAsyncContext *context;$/;"	m	struct:redisLibeventEvents
+context	hiredis/adapters/libuv.h	/^  redisAsyncContext* context;$/;"	m	struct:redisLibuvEvents
+context	hiredis/adapters/macosx.h	/^    redisAsyncContext *context;$/;"	m	struct:__anon7
+countDigits	hiredis/hiredis.c	/^static uint32_t countDigits(uint64_t v) {$/;"	f	file:
+createArray	hiredis/read.h	/^    void *(*createArray)(const redisReadTask*, int);$/;"	m	struct:redisReplyObjectFunctions
+createArrayObject	hiredis/hiredis.c	/^static void *createArrayObject(const redisReadTask *task, int elements) {$/;"	f	file:
+createFriendlist	window/window.cpp	/^void Window::createFriendlist()$/;"	f	class:Window
+createHeader	window/window.cpp	/^void Window::createHeader()$/;"	f	class:Window
+createInput	window/window.cpp	/^void Window::createInput(std::string& out)$/;"	f	class:Window
+createInteger	hiredis/read.h	/^    void *(*createInteger)(const redisReadTask*, long long);$/;"	m	struct:redisReplyObjectFunctions
+createIntegerObject	hiredis/hiredis.c	/^static void *createIntegerObject(const redisReadTask *task, long long value) {$/;"	f	file:
+createNil	hiredis/read.h	/^    void *(*createNil)(const redisReadTask*);$/;"	m	struct:redisReplyObjectFunctions
+createNilObject	hiredis/hiredis.c	/^static void *createNilObject(const redisReadTask *task) {$/;"	f	file:
+createOutput	window/window.cpp	/^void Window::createOutput()$/;"	f	class:Window
+createReplyObject	hiredis/hiredis.c	/^static redisReply *createReplyObject(int type) {$/;"	f	file:
+createString	hiredis/read.h	/^    void *(*createString)(const redisReadTask*, char*, size_t);$/;"	m	struct:redisReplyObjectFunctions
+createStringObject	hiredis/hiredis.c	/^static void *createStringObject(const redisReadTask *task, char *str, size_t len) {$/;"	f	file:
+create_newwin	window/window.cpp	/^WINDOW* Window::create_newwin(int heigth,int width,int starty,int startx)$/;"	f	class:Window
+data	hiredis/async.h	/^        void *data;$/;"	m	struct:redisAsyncContext::__anon1
+data	hiredis/async.h	/^    void *data;$/;"	m	struct:redisAsyncContext
 deSerialize	Json/JsonApi.cpp	/^Json::Value JsonApi::deSerialize(const std::string str)$/;"	f	class:JsonApi
-main	Json/JsonApi.cpp	/^int main()$/;"	f
+defaultFunctions	hiredis/hiredis.c	/^static redisReplyObjectFunctions defaultFunctions = {$/;"	v	file:
+delRead	hiredis/adapters/qt.h	/^        void delRead() {$/;"	f	class:RedisQtAdapter
+delRead	hiredis/async.h	/^        void (*delRead)(void *privdata);$/;"	m	struct:redisAsyncContext::__anon1
+delWrite	hiredis/adapters/qt.h	/^        void delWrite() {$/;"	f	class:RedisQtAdapter
+delWrite	hiredis/async.h	/^        void (*delWrite)(void *privdata);$/;"	m	struct:redisAsyncContext::__anon1
+destroyWin	window/window.cpp	/^void Window::destroyWin(WINDOW* win)$/;"	f	class:Window
+dict	hiredis/dict.h	/^typedef struct dict {$/;"	s
+dict	hiredis/dict.h	/^} dict;$/;"	t	typeref:struct:dict
+dictAdd	hiredis/dict.c	/^static int dictAdd(dict *ht, void *key, void *val) {$/;"	f	file:
+dictCompareHashKeys	hiredis/dict.h	101;"	d
+dictCreate	hiredis/dict.c	/^static dict *dictCreate(dictType *type, void *privDataPtr) {$/;"	f	file:
+dictDelete	hiredis/dict.c	/^static int dictDelete(dict *ht, const void *key) {$/;"	f	file:
+dictEntry	hiredis/dict.h	/^typedef struct dictEntry {$/;"	s
+dictEntry	hiredis/dict.h	/^} dictEntry;$/;"	t	typeref:struct:dictEntry
+dictExpand	hiredis/dict.c	/^static int dictExpand(dict *ht, unsigned long size) {$/;"	f	file:
+dictFind	hiredis/dict.c	/^static dictEntry *dictFind(dict *ht, const void *key) {$/;"	f	file:
+dictFreeEntryKey	hiredis/dict.h	90;"	d
+dictFreeEntryVal	hiredis/dict.h	79;"	d
+dictGenHashFunction	hiredis/dict.c	/^static unsigned int dictGenHashFunction(const unsigned char *buf, int len) {$/;"	f	file:
+dictGetEntryKey	hiredis/dict.h	108;"	d
+dictGetEntryVal	hiredis/dict.h	109;"	d
+dictGetIterator	hiredis/dict.c	/^static dictIterator *dictGetIterator(dict *ht) {$/;"	f	file:
+dictHashKey	hiredis/dict.h	106;"	d
+dictIterator	hiredis/dict.h	/^typedef struct dictIterator {$/;"	s
+dictIterator	hiredis/dict.h	/^} dictIterator;$/;"	t	typeref:struct:dictIterator
+dictNext	hiredis/dict.c	/^static dictEntry *dictNext(dictIterator *iter) {$/;"	f	file:
+dictRelease	hiredis/dict.c	/^static void dictRelease(dict *ht) {$/;"	f	file:
+dictReleaseIterator	hiredis/dict.c	/^static void dictReleaseIterator(dictIterator *iter) {$/;"	f	file:
+dictReplace	hiredis/dict.c	/^static int dictReplace(dict *ht, void *key, void *val) {$/;"	f	file:
+dictSetHashKey	hiredis/dict.h	94;"	d
+dictSetHashVal	hiredis/dict.h	83;"	d
+dictSize	hiredis/dict.h	111;"	d
+dictSlots	hiredis/dict.h	110;"	d
+dictType	hiredis/dict.h	/^typedef struct dictType {$/;"	s
+dictType	hiredis/dict.h	/^} dictType;$/;"	t	typeref:struct:dictType
+disconnect	hiredis/test.c	/^static int disconnect(redisContext *c, int keep_fd) {$/;"	f	file:
+disconnectCallback	hiredis/examples/example-ae.c	/^void disconnectCallback(const redisAsyncContext *c, int status) {$/;"	f
+disconnectCallback	hiredis/examples/example-ivykis.c	/^void disconnectCallback(const redisAsyncContext *c, int status) {$/;"	f
+disconnectCallback	hiredis/examples/example-libev.c	/^void disconnectCallback(const redisAsyncContext *c, int status) {$/;"	f
+disconnectCallback	hiredis/examples/example-libevent.c	/^void disconnectCallback(const redisAsyncContext *c, int status) {$/;"	f
+disconnectCallback	hiredis/examples/example-libuv.c	/^void disconnectCallback(const redisAsyncContext *c, int status) {$/;"	f
+disconnectCallback	hiredis/examples/example-macosx.c	/^void disconnectCallback(const redisAsyncContext *c, int status) {$/;"	f
+disconnect_cb	hiredis/examples/example-glib.c	/^disconnect_cb (const redisAsyncContext *ac G_GNUC_UNUSED,$/;"	f	file:
+element	hiredis/hiredis.h	/^    struct redisReply **element; \/* elements vector for REDIS_REPLY_ARRAY *\/$/;"	m	struct:redisReply	typeref:struct:redisReply::redisReply
+elements	hiredis/hiredis.h	/^    size_t elements; \/* number of elements, for REDIS_REPLY_ARRAY *\/$/;"	m	struct:redisReply
+elements	hiredis/read.h	/^    int elements; \/* number of elements in multibulk container *\/$/;"	m	struct:redisReadTask
+entry	hiredis/dict.h	/^    dictEntry *entry, *nextEntry;$/;"	m	struct:dictIterator
+err	hiredis/async.h	/^    int err;$/;"	m	struct:redisAsyncContext
+err	hiredis/hiredis.h	/^    int err; \/* Error flags, 0 when there is no error *\/$/;"	m	struct:redisContext
+err	hiredis/read.h	/^    int err; \/* Error flags, 0 when there is no error *\/$/;"	m	struct:redisReader
+errstr	hiredis/async.h	/^    char *errstr;$/;"	m	struct:redisAsyncContext
+errstr	hiredis/hiredis.h	/^    char errstr[128]; \/* String representation of error when applicable *\/$/;"	m	struct:redisContext
+errstr	hiredis/read.h	/^    char errstr[128]; \/* String representation of error when applicable *\/$/;"	m	struct:redisReader
+ev	hiredis/async.h	/^    } ev;$/;"	m	struct:redisAsyncContext	typeref:struct:redisAsyncContext::__anon1
+events	hiredis/adapters/libuv.h	/^  int                events;$/;"	m	struct:redisLibuvEvents
+fails	hiredis/test.c	/^static int tests = 0, fails = 0;$/;"	v	file:
+fd	hiredis/adapters/ae.h	/^    int fd;$/;"	m	struct:redisAeEvents
+fd	hiredis/adapters/ivykis.h	/^    struct iv_fd fd;$/;"	m	struct:redisIvykisEvents	typeref:struct:redisIvykisEvents::iv_fd
+fd	hiredis/hiredis.h	/^    int fd;$/;"	m	struct:redisContext
+finish	hiredis/examples/example-qt.h	/^        void finish() { emit finished(); }$/;"	f	class:ExampleQt
+flags	hiredis/hiredis.h	/^    int flags;$/;"	m	struct:redisContext
+flags	hiredis/sds.h	/^    unsigned char flags; \/* 3 lsb of type, 5 unused bits *\/$/;"	m	struct:sdshdr16
+flags	hiredis/sds.h	/^    unsigned char flags; \/* 3 lsb of type, 5 unused bits *\/$/;"	m	struct:sdshdr32
+flags	hiredis/sds.h	/^    unsigned char flags; \/* 3 lsb of type, 5 unused bits *\/$/;"	m	struct:sdshdr64
+flags	hiredis/sds.h	/^    unsigned char flags; \/* 3 lsb of type, 5 unused bits *\/$/;"	m	struct:sdshdr8
+flags	hiredis/sds.h	/^    unsigned char flags; \/* 3 lsb of type, and 5 msb of string length *\/$/;"	m	struct:sdshdr5
+fn	hiredis/async.h	/^    redisCallbackFn *fn;$/;"	m	struct:redisCallback
+fn	hiredis/read.h	/^    redisReplyObjectFunctions *fn;$/;"	m	struct:redisReader
+freeObject	hiredis/read.h	/^    void (*freeObject)(void*);$/;"	m	struct:redisReplyObjectFunctions
+freeRedisRunLoop	hiredis/adapters/macosx.h	/^static int freeRedisRunLoop(RedisRunLoop* redisRunLoop) {$/;"	f
+freeReplyObject	hiredis/hiredis.c	/^void freeReplyObject(void *reply) {$/;"	f
+friend_list	window/window.h	/^		WINDOW* friend_list;$/;"	m	class:Window
+getCallback	hiredis/examples/example-ae.c	/^void getCallback(redisAsyncContext *c, void *r, void *privdata) {$/;"	f
+getCallback	hiredis/examples/example-ivykis.c	/^void getCallback(redisAsyncContext *c, void *r, void *privdata) {$/;"	f
+getCallback	hiredis/examples/example-libev.c	/^void getCallback(redisAsyncContext *c, void *r, void *privdata) {$/;"	f
+getCallback	hiredis/examples/example-libevent.c	/^void getCallback(redisAsyncContext *c, void *r, void *privdata) {$/;"	f
+getCallback	hiredis/examples/example-libuv.c	/^void getCallback(redisAsyncContext *c, void *r, void *privdata) {$/;"	f
+getCallback	hiredis/examples/example-macosx.c	/^void getCallback(redisAsyncContext *c, void *r, void *privdata) {$/;"	f
+getCallback	hiredis/examples/example-qt.cpp	/^void getCallback(redisAsyncContext *, void * r, void * privdata) {$/;"	f
+getInputmsg	window/window.cpp	/^std::string Window::getInputmsg(WINDOW* win)$/;"	f	class:Window
+handle	hiredis/adapters/libuv.h	/^  uv_poll_t          handle;$/;"	m	struct:redisLibuvEvents
+hashFunction	hiredis/dict.h	/^    unsigned int (*hashFunction)(const void *key);$/;"	m	struct:dictType
+head	hiredis/async.h	/^    redisCallback *head, *tail;$/;"	m	struct:redisCallbackList
+header	window/window.h	/^		WINDOW* header;$/;"	m	class:Window
+hex_digit_to_int	hiredis/sds.c	/^int hex_digit_to_int(char c) {$/;"	f
+host	hiredis/hiredis.h	/^        char *host;$/;"	m	struct:redisContext::__anon3
+host	hiredis/test.c	/^        const char *host;$/;"	m	struct:config::__anon5	file:
+ht	hiredis/dict.h	/^    dict *ht;$/;"	m	struct:dictIterator
+idx	hiredis/read.h	/^    int idx; \/* index in parent (array) object *\/$/;"	m	struct:redisReadTask
+index	hiredis/dict.h	/^    int index;$/;"	m	struct:dictIterator
+inline	hiredis/win32.h	6;"	d
+input	window/window.h	/^		WINDOW* input;$/;"	m	class:Window
+integer	hiredis/hiredis.h	/^    long long integer; \/* The integer when type is REDIS_REPLY_INTEGER *\/$/;"	m	struct:redisReply
+invalid	hiredis/async.h	/^        redisCallbackList invalid;$/;"	m	struct:redisAsyncContext::__anon2
+is_hex_digit	hiredis/sds.c	/^int is_hex_digit(char c) {$/;"	f
+key	hiredis/dict.h	/^    void *key;$/;"	m	struct:dictEntry
+keyCompare	hiredis/dict.h	/^    int (*keyCompare)(void *privdata, const void *key1, const void *key2);$/;"	m	struct:dictType
+keyDestructor	hiredis/dict.h	/^    void (*keyDestructor)(void *privdata, void *key);$/;"	m	struct:dictType
+keyDup	hiredis/dict.h	/^    void *(*keyDup)(void *privdata, const void *key);$/;"	m	struct:dictType
+len	hiredis/hiredis.h	/^    size_t len; \/* Length of string *\/$/;"	m	struct:redisReply
+len	hiredis/read.h	/^    size_t len; \/* Buffer length *\/$/;"	m	struct:redisReader
+len	hiredis/sds.h	/^    uint16_t len; \/* used *\/$/;"	m	struct:sdshdr16
+len	hiredis/sds.h	/^    uint32_t len; \/* used *\/$/;"	m	struct:sdshdr32
+len	hiredis/sds.h	/^    uint64_t len; \/* used *\/$/;"	m	struct:sdshdr64
+len	hiredis/sds.h	/^    uint8_t len; \/* used *\/$/;"	m	struct:sdshdr8
+loop	hiredis/adapters/ae.h	/^    aeEventLoop *loop;$/;"	m	struct:redisAeEvents
+loop	hiredis/adapters/libev.h	/^    struct ev_loop *loop;$/;"	m	struct:redisLibevEvents	typeref:struct:redisLibevEvents::ev_loop
+loop	hiredis/examples/example-ae.c	/^static aeEventLoop *loop;$/;"	v	file:
+m_adapter	hiredis/examples/example-qt.h	/^        RedisQtAdapter m_adapter;$/;"	m	class:ExampleQt
+m_ctx	hiredis/adapters/qt.h	/^        redisAsyncContext * m_ctx;$/;"	m	class:RedisQtAdapter
+m_ctx	hiredis/examples/example-qt.h	/^        redisAsyncContext * m_ctx;$/;"	m	class:ExampleQt
+m_read	hiredis/adapters/qt.h	/^        QSocketNotifier * m_read;$/;"	m	class:RedisQtAdapter
+m_value	hiredis/examples/example-qt.h	/^        const char * m_value;$/;"	m	class:ExampleQt
+m_write	hiredis/adapters/qt.h	/^        QSocketNotifier * m_write;$/;"	m	class:RedisQtAdapter
+main	Json/DataType.cpp	/^int main()$/;"	f
 main	client/udpClientMain.cpp	/^int main(int argc,char* argv[])$/;"	f
+main	hiredis/examples/example-ae.c	/^int main (int argc, char **argv) {$/;"	f
+main	hiredis/examples/example-glib.c	/^main (gint argc     G_GNUC_UNUSED,$/;"	f
+main	hiredis/examples/example-ivykis.c	/^int main (int argc, char **argv) {$/;"	f
+main	hiredis/examples/example-libev.c	/^int main (int argc, char **argv) {$/;"	f
+main	hiredis/examples/example-libevent.c	/^int main (int argc, char **argv) {$/;"	f
+main	hiredis/examples/example-libuv.c	/^int main (int argc, char **argv) {$/;"	f
+main	hiredis/examples/example-macosx.c	/^int main (int argc, char **argv) {$/;"	f
+main	hiredis/examples/example-qt.cpp	/^int main (int argc, char **argv) {$/;"	f
+main	hiredis/examples/example.c	/^int main(int argc, char **argv) {$/;"	f
+main	hiredis/sds.c	/^int main(void) {$/;"	f
+main	hiredis/test.c	/^int main(int argc, char **argv) {$/;"	f
 main	pool/pool.cpp	/^int main()$/;"	f
 main	server/udpServerMain.cpp	/^int main(int argc,char* argv[])$/;"	f
+main	window/window.cpp	/^int main()$/;"	f
+mainloop	hiredis/examples/example-glib.c	/^static GMainLoop *mainloop;$/;"	v	file:
+maxbuf	hiredis/read.h	/^    size_t maxbuf; \/* Max length of unused buffer *\/$/;"	m	struct:redisReader
+moveToNextTask	hiredis/read.c	/^static void moveToNextTask(redisReader *r) {$/;"	f	file:
 msg	Json/DataType.h	/^		std::string msg;$/;"	m	class:DataType
 name	Json/DataType.h	/^		std::string name;$/;"	m	class:DataType
+next	hiredis/async.h	/^    struct redisCallback *next; \/* simple singly linked list *\/$/;"	m	struct:redisCallback	typeref:struct:redisCallback::redisCallback
+next	hiredis/dict.h	/^    struct dictEntry *next;$/;"	m	struct:dictEntry	typeref:struct:dictEntry::dictEntry
+nextArgument	hiredis/async.c	/^static const char *nextArgument(const char *start, const char **str, size_t *len) {$/;"	f	file:
+nextEntry	hiredis/dict.h	/^    dictEntry *entry, *nextEntry;$/;"	m	struct:dictIterator
+obj	hiredis/read.h	/^    void *obj; \/* holds user-generated value for a read task *\/$/;"	m	struct:redisReadTask
+obuf	hiredis/hiredis.h	/^    char *obuf; \/* Write buffer *\/$/;"	m	struct:redisContext
+onConnect	hiredis/async.h	/^    redisConnectCallback *onConnect;$/;"	m	struct:redisAsyncContext
+onDisconnect	hiredis/async.h	/^    redisDisconnectCallback *onDisconnect;$/;"	m	struct:redisAsyncContext
+on_close	hiredis/adapters/libuv.h	/^static void on_close(uv_handle_t* handle) {$/;"	f
+output	window/window.h	/^		WINDOW* output;$/;"	m	class:Window
+parent	hiredis/read.h	/^    struct redisReadTask *parent; \/* parent task *\/$/;"	m	struct:redisReadTask	typeref:struct:redisReadTask::redisReadTask
+path	hiredis/hiredis.h	/^        char *path;$/;"	m	struct:redisContext::__anon4
+path	hiredis/test.c	/^        const char *path;$/;"	m	struct:config::__anon6	file:
+patterns	hiredis/async.h	/^        struct dict *patterns;$/;"	m	struct:redisAsyncContext::__anon2	typeref:struct:redisAsyncContext::__anon2::dict
 peer_ip	client/udpClient.h	/^		std::string peer_ip;$/;"	m	class:UdpClient
 peer_port	client/udpClient.h	/^		int peer_port;$/;"	m	class:UdpClient
 peer_sock	client/udpClient.h	/^		int peer_sock;$/;"	m	class:UdpClient
+poll_fd	hiredis/adapters/glib.h	/^    GPollFD poll_fd;$/;"	m	struct:__anon8
 pool	pool/pool.h	/^		vector<std::string> pool;$/;"	m	class:Pool
 pool	server/udpServer.h	/^		Pool pool;$/;"	m	class:UdpServer
+port	hiredis/hiredis.h	/^        int port;$/;"	m	struct:redisContext::__anon3
+port	hiredis/test.c	/^        int port;$/;"	m	struct:config::__anon5	file:
+pos	hiredis/read.h	/^    size_t pos; \/* Buffer cursor *\/$/;"	m	struct:redisReader
+privdata	hiredis/async.h	/^    void *privdata;$/;"	m	struct:redisCallback
+privdata	hiredis/dict.h	/^    void *privdata;$/;"	m	struct:dict
+privdata	hiredis/read.h	/^    void *privdata; \/* user-settable arbitrary field *\/$/;"	m	struct:redisReadTask
+privdata	hiredis/read.h	/^    void *privdata;$/;"	m	struct:redisReader
+processBulkItem	hiredis/read.c	/^static int processBulkItem(redisReader *r) {$/;"	f	file:
+processItem	hiredis/read.c	/^static int processItem(redisReader *r) {$/;"	f	file:
+processLineItem	hiredis/read.c	/^static int processLineItem(redisReader *r) {$/;"	f	file:
+processMultiBulkItem	hiredis/read.c	/^static int processMultiBulkItem(redisReader *r) {$/;"	f	file:
 productRun	server/udpServerMain.cpp	/^static void* productRun(void* arg)$/;"	f	file:
 productStep	pool/pool.h	/^		int productStep;$/;"	m	class:Pool
+putstrTowin	window/window.cpp	/^void Window::putstrTowin(WINDOW* win,int starty,int startx,const \\$/;"	f	class:Window
+read	hiredis/adapters/qt.h	/^        void read() { redisAsyncHandleRead(m_ctx); }$/;"	f	class:RedisQtAdapter
+readBytes	hiredis/read.c	/^static char *readBytes(redisReader *r, unsigned int bytes) {$/;"	f	file:
+readLine	hiredis/read.c	/^static char *readLine(redisReader *r, int *_len) {$/;"	f	file:
+readLongLong	hiredis/read.c	/^static long long readLongLong(char *s) {$/;"	f	file:
+reader	hiredis/hiredis.h	/^    redisReader *reader; \/* Protocol reader *\/$/;"	m	struct:redisContext
+reading	hiredis/adapters/ae.h	/^    int reading, writing;$/;"	m	struct:redisAeEvents
+reading	hiredis/adapters/libev.h	/^    int reading, writing;$/;"	m	struct:redisLibevEvents
+redisAeAddRead	hiredis/adapters/ae.h	/^static void redisAeAddRead(void *privdata) {$/;"	f
+redisAeAddWrite	hiredis/adapters/ae.h	/^static void redisAeAddWrite(void *privdata) {$/;"	f
+redisAeAttach	hiredis/adapters/ae.h	/^static int redisAeAttach(aeEventLoop *loop, redisAsyncContext *ac) {$/;"	f
+redisAeCleanup	hiredis/adapters/ae.h	/^static void redisAeCleanup(void *privdata) {$/;"	f
+redisAeDelRead	hiredis/adapters/ae.h	/^static void redisAeDelRead(void *privdata) {$/;"	f
+redisAeDelWrite	hiredis/adapters/ae.h	/^static void redisAeDelWrite(void *privdata) {$/;"	f
+redisAeEvents	hiredis/adapters/ae.h	/^typedef struct redisAeEvents {$/;"	s
+redisAeEvents	hiredis/adapters/ae.h	/^} redisAeEvents;$/;"	t	typeref:struct:redisAeEvents
+redisAeReadEvent	hiredis/adapters/ae.h	/^static void redisAeReadEvent(aeEventLoop *el, int fd, void *privdata, int mask) {$/;"	f
+redisAeWriteEvent	hiredis/adapters/ae.h	/^static void redisAeWriteEvent(aeEventLoop *el, int fd, void *privdata, int mask) {$/;"	f
+redisAppendCommand	hiredis/hiredis.c	/^int redisAppendCommand(redisContext *c, const char *format, ...) {$/;"	f
+redisAppendCommandArgv	hiredis/hiredis.c	/^int redisAppendCommandArgv(redisContext *c, int argc, const char **argv, const size_t *argvlen) {$/;"	f
+redisAppendFormattedCommand	hiredis/hiredis.c	/^int redisAppendFormattedCommand(redisContext *c, const char *cmd, size_t len) {$/;"	f
+redisAsyncCommand	hiredis/async.c	/^int redisAsyncCommand(redisAsyncContext *ac, redisCallbackFn *fn, void *privdata, const char *format, ...) {$/;"	f
+redisAsyncCommandArgv	hiredis/async.c	/^int redisAsyncCommandArgv(redisAsyncContext *ac, redisCallbackFn *fn, void *privdata, int argc, const char **argv, const size_t *argvlen) {$/;"	f
+redisAsyncConnect	hiredis/async.c	/^redisAsyncContext *redisAsyncConnect(const char *ip, int port) {$/;"	f
+redisAsyncConnectBind	hiredis/async.c	/^redisAsyncContext *redisAsyncConnectBind(const char *ip, int port,$/;"	f
+redisAsyncConnectBindWithReuse	hiredis/async.c	/^redisAsyncContext *redisAsyncConnectBindWithReuse(const char *ip, int port,$/;"	f
+redisAsyncConnectUnix	hiredis/async.c	/^redisAsyncContext *redisAsyncConnectUnix(const char *path) {$/;"	f
+redisAsyncContext	hiredis/async.h	/^typedef struct redisAsyncContext {$/;"	s
+redisAsyncContext	hiredis/async.h	/^} redisAsyncContext;$/;"	t	typeref:struct:redisAsyncContext
+redisAsyncDisconnect	hiredis/async.c	/^void redisAsyncDisconnect(redisAsyncContext *ac) {$/;"	f
+redisAsyncFormattedCommand	hiredis/async.c	/^int redisAsyncFormattedCommand(redisAsyncContext *ac, redisCallbackFn *fn, void *privdata, const char *cmd, size_t len) {$/;"	f
+redisAsyncFree	hiredis/async.c	/^void redisAsyncFree(redisAsyncContext *ac) {$/;"	f
+redisAsyncHandleRead	hiredis/async.c	/^void redisAsyncHandleRead(redisAsyncContext *ac) {$/;"	f
+redisAsyncHandleWrite	hiredis/async.c	/^void redisAsyncHandleWrite(redisAsyncContext *ac) {$/;"	f
+redisAsyncInitialize	hiredis/async.c	/^static redisAsyncContext *redisAsyncInitialize(redisContext *c) {$/;"	f	file:
+redisAsyncSetConnectCallback	hiredis/async.c	/^int redisAsyncSetConnectCallback(redisAsyncContext *ac, redisConnectCallback *fn) {$/;"	f
+redisAsyncSetDisconnectCallback	hiredis/async.c	/^int redisAsyncSetDisconnectCallback(redisAsyncContext *ac, redisDisconnectCallback *fn) {$/;"	f
+redisBufferRead	hiredis/hiredis.c	/^int redisBufferRead(redisContext *c) {$/;"	f
+redisBufferWrite	hiredis/hiredis.c	/^int redisBufferWrite(redisContext *c, int *done) {$/;"	f
+redisCallback	hiredis/async.h	/^typedef struct redisCallback {$/;"	s
+redisCallback	hiredis/async.h	/^} redisCallback;$/;"	t	typeref:struct:redisCallback
+redisCallbackFn	hiredis/async.h	/^typedef void (redisCallbackFn)(struct redisAsyncContext*, void*, void*);$/;"	t
+redisCallbackList	hiredis/async.h	/^typedef struct redisCallbackList {$/;"	s
+redisCallbackList	hiredis/async.h	/^} redisCallbackList;$/;"	t	typeref:struct:redisCallbackList
+redisCheckSocketError	hiredis/net.c	/^int redisCheckSocketError(redisContext *c) {$/;"	f
+redisCommand	hiredis/hiredis.c	/^void *redisCommand(redisContext *c, const char *format, ...) {$/;"	f
+redisCommandArgv	hiredis/hiredis.c	/^void *redisCommandArgv(redisContext *c, int argc, const char **argv, const size_t *argvlen) {$/;"	f
+redisConnect	hiredis/hiredis.c	/^redisContext *redisConnect(const char *ip, int port) {$/;"	f
+redisConnectBindNonBlock	hiredis/hiredis.c	/^redisContext *redisConnectBindNonBlock(const char *ip, int port,$/;"	f
+redisConnectBindNonBlockWithReuse	hiredis/hiredis.c	/^redisContext *redisConnectBindNonBlockWithReuse(const char *ip, int port,$/;"	f
+redisConnectCallback	hiredis/async.h	/^typedef void (redisConnectCallback)(const struct redisAsyncContext*, int status);$/;"	t
+redisConnectFd	hiredis/hiredis.c	/^redisContext *redisConnectFd(int fd) {$/;"	f
+redisConnectNonBlock	hiredis/hiredis.c	/^redisContext *redisConnectNonBlock(const char *ip, int port) {$/;"	f
+redisConnectUnix	hiredis/hiredis.c	/^redisContext *redisConnectUnix(const char *path) {$/;"	f
+redisConnectUnixNonBlock	hiredis/hiredis.c	/^redisContext *redisConnectUnixNonBlock(const char *path) {$/;"	f
+redisConnectUnixWithTimeout	hiredis/hiredis.c	/^redisContext *redisConnectUnixWithTimeout(const char *path, const struct timeval tv) {$/;"	f
+redisConnectWithTimeout	hiredis/hiredis.c	/^redisContext *redisConnectWithTimeout(const char *ip, int port, const struct timeval tv) {$/;"	f
+redisConnectionType	hiredis/hiredis.h	/^enum redisConnectionType {$/;"	g
+redisContext	hiredis/hiredis.h	/^typedef struct redisContext {$/;"	s
+redisContext	hiredis/hiredis.h	/^} redisContext;$/;"	t	typeref:struct:redisContext
+redisContextCloseFd	hiredis/net.c	/^static void redisContextCloseFd(redisContext *c) {$/;"	f	file:
+redisContextConnectBindTcp	hiredis/net.c	/^int redisContextConnectBindTcp(redisContext *c, const char *addr, int port,$/;"	f
+redisContextConnectTcp	hiredis/net.c	/^int redisContextConnectTcp(redisContext *c, const char *addr, int port,$/;"	f
+redisContextConnectUnix	hiredis/net.c	/^int redisContextConnectUnix(redisContext *c, const char *path, const struct timeval *timeout) {$/;"	f
+redisContextInit	hiredis/hiredis.c	/^static redisContext *redisContextInit(void) {$/;"	f	file:
+redisContextSetTimeout	hiredis/net.c	/^int redisContextSetTimeout(redisContext *c, const struct timeval tv) {$/;"	f
+redisContextTimeoutMsec	hiredis/net.c	/^static int redisContextTimeoutMsec(redisContext *c, long *result)$/;"	f	file:
+redisContextWaitReady	hiredis/net.c	/^static int redisContextWaitReady(redisContext *c, long msec) {$/;"	f	file:
+redisCreateSocket	hiredis/net.c	/^static int redisCreateSocket(redisContext *c, int type) {$/;"	f	file:
+redisDisconnectCallback	hiredis/async.h	/^typedef void (redisDisconnectCallback)(const struct redisAsyncContext*, int status);$/;"	t
+redisEnableKeepAlive	hiredis/hiredis.c	/^int redisEnableKeepAlive(redisContext *c) {$/;"	f
+redisFormatCommand	hiredis/hiredis.c	/^int redisFormatCommand(char **target, const char *format, ...) {$/;"	f
+redisFormatCommandArgv	hiredis/hiredis.c	/^int redisFormatCommandArgv(char **target, int argc, const char **argv, const size_t *argvlen) {$/;"	f
+redisFormatSdsCommandArgv	hiredis/hiredis.c	/^int redisFormatSdsCommandArgv(sds *target, int argc, const char **argv,$/;"	f
+redisFree	hiredis/hiredis.c	/^void redisFree(redisContext *c) {$/;"	f
+redisFreeCommand	hiredis/hiredis.c	/^void redisFreeCommand(char *cmd) {$/;"	f
+redisFreeKeepFd	hiredis/hiredis.c	/^int redisFreeKeepFd(redisContext *c) {$/;"	f
+redisFreeSdsCommand	hiredis/hiredis.c	/^void redisFreeSdsCommand(sds cmd) {$/;"	f
+redisGetReply	hiredis/hiredis.c	/^int redisGetReply(redisContext *c, void **reply) {$/;"	f
+redisGetReplyFromReader	hiredis/hiredis.c	/^int redisGetReplyFromReader(redisContext *c, void **reply) {$/;"	f
+redisIvykisAddRead	hiredis/adapters/ivykis.h	/^static void redisIvykisAddRead(void *privdata) {$/;"	f
+redisIvykisAddWrite	hiredis/adapters/ivykis.h	/^static void redisIvykisAddWrite(void *privdata) {$/;"	f
+redisIvykisAttach	hiredis/adapters/ivykis.h	/^static int redisIvykisAttach(redisAsyncContext *ac) {$/;"	f
+redisIvykisCleanup	hiredis/adapters/ivykis.h	/^static void redisIvykisCleanup(void *privdata) {$/;"	f
+redisIvykisDelRead	hiredis/adapters/ivykis.h	/^static void redisIvykisDelRead(void *privdata) {$/;"	f
+redisIvykisDelWrite	hiredis/adapters/ivykis.h	/^static void redisIvykisDelWrite(void *privdata) {$/;"	f
+redisIvykisEvents	hiredis/adapters/ivykis.h	/^typedef struct redisIvykisEvents {$/;"	s
+redisIvykisEvents	hiredis/adapters/ivykis.h	/^} redisIvykisEvents;$/;"	t	typeref:struct:redisIvykisEvents
+redisIvykisReadEvent	hiredis/adapters/ivykis.h	/^static void redisIvykisReadEvent(void *arg) {$/;"	f
+redisIvykisWriteEvent	hiredis/adapters/ivykis.h	/^static void redisIvykisWriteEvent(void *arg) {$/;"	f
+redisKeepAlive	hiredis/net.c	/^int redisKeepAlive(redisContext *c, int interval) {$/;"	f
+redisLibevAddRead	hiredis/adapters/libev.h	/^static void redisLibevAddRead(void *privdata) {$/;"	f
+redisLibevAddWrite	hiredis/adapters/libev.h	/^static void redisLibevAddWrite(void *privdata) {$/;"	f
+redisLibevAttach	hiredis/adapters/libev.h	/^static int redisLibevAttach(EV_P_ redisAsyncContext *ac) {$/;"	f
+redisLibevCleanup	hiredis/adapters/libev.h	/^static void redisLibevCleanup(void *privdata) {$/;"	f
+redisLibevDelRead	hiredis/adapters/libev.h	/^static void redisLibevDelRead(void *privdata) {$/;"	f
+redisLibevDelWrite	hiredis/adapters/libev.h	/^static void redisLibevDelWrite(void *privdata) {$/;"	f
+redisLibevEvents	hiredis/adapters/libev.h	/^typedef struct redisLibevEvents {$/;"	s
+redisLibevEvents	hiredis/adapters/libev.h	/^} redisLibevEvents;$/;"	t	typeref:struct:redisLibevEvents
+redisLibevReadEvent	hiredis/adapters/libev.h	/^static void redisLibevReadEvent(EV_P_ ev_io *watcher, int revents) {$/;"	f
+redisLibevWriteEvent	hiredis/adapters/libev.h	/^static void redisLibevWriteEvent(EV_P_ ev_io *watcher, int revents) {$/;"	f
+redisLibeventAddRead	hiredis/adapters/libevent.h	/^static void redisLibeventAddRead(void *privdata) {$/;"	f
+redisLibeventAddWrite	hiredis/adapters/libevent.h	/^static void redisLibeventAddWrite(void *privdata) {$/;"	f
+redisLibeventAttach	hiredis/adapters/libevent.h	/^static int redisLibeventAttach(redisAsyncContext *ac, struct event_base *base) {$/;"	f
+redisLibeventCleanup	hiredis/adapters/libevent.h	/^static void redisLibeventCleanup(void *privdata) {$/;"	f
+redisLibeventDelRead	hiredis/adapters/libevent.h	/^static void redisLibeventDelRead(void *privdata) {$/;"	f
+redisLibeventDelWrite	hiredis/adapters/libevent.h	/^static void redisLibeventDelWrite(void *privdata) {$/;"	f
+redisLibeventEvents	hiredis/adapters/libevent.h	/^typedef struct redisLibeventEvents {$/;"	s
+redisLibeventEvents	hiredis/adapters/libevent.h	/^} redisLibeventEvents;$/;"	t	typeref:struct:redisLibeventEvents
+redisLibeventReadEvent	hiredis/adapters/libevent.h	/^static void redisLibeventReadEvent(int fd, short event, void *arg) {$/;"	f
+redisLibeventWriteEvent	hiredis/adapters/libevent.h	/^static void redisLibeventWriteEvent(int fd, short event, void *arg) {$/;"	f
+redisLibuvAddRead	hiredis/adapters/libuv.h	/^static void redisLibuvAddRead(void *privdata) {$/;"	f
+redisLibuvAddWrite	hiredis/adapters/libuv.h	/^static void redisLibuvAddWrite(void *privdata) {$/;"	f
+redisLibuvAttach	hiredis/adapters/libuv.h	/^static int redisLibuvAttach(redisAsyncContext* ac, uv_loop_t* loop) {$/;"	f
+redisLibuvCleanup	hiredis/adapters/libuv.h	/^static void redisLibuvCleanup(void *privdata) {$/;"	f
+redisLibuvDelRead	hiredis/adapters/libuv.h	/^static void redisLibuvDelRead(void *privdata) {$/;"	f
+redisLibuvDelWrite	hiredis/adapters/libuv.h	/^static void redisLibuvDelWrite(void *privdata) {$/;"	f
+redisLibuvEvents	hiredis/adapters/libuv.h	/^typedef struct redisLibuvEvents {$/;"	s
+redisLibuvEvents	hiredis/adapters/libuv.h	/^} redisLibuvEvents;$/;"	t	typeref:struct:redisLibuvEvents
+redisLibuvPoll	hiredis/adapters/libuv.h	/^static void redisLibuvPoll(uv_poll_t* handle, int status, int events) {$/;"	f
+redisMacOSAddRead	hiredis/adapters/macosx.h	/^static void redisMacOSAddRead(void *privdata) {$/;"	f
+redisMacOSAddWrite	hiredis/adapters/macosx.h	/^static void redisMacOSAddWrite(void *privdata) {$/;"	f
+redisMacOSAsyncCallback	hiredis/adapters/macosx.h	/^static void redisMacOSAsyncCallback(CFSocketRef __unused s, CFSocketCallBackType callbackType, CFDataRef __unused address, const void __unused *data, void *info) {$/;"	f
+redisMacOSAttach	hiredis/adapters/macosx.h	/^static int redisMacOSAttach(redisAsyncContext *redisAsyncCtx, CFRunLoopRef runLoop) {$/;"	f
+redisMacOSCleanup	hiredis/adapters/macosx.h	/^static void redisMacOSCleanup(void *privdata) {$/;"	f
+redisMacOSDelRead	hiredis/adapters/macosx.h	/^static void redisMacOSDelRead(void *privdata) {$/;"	f
+redisMacOSDelWrite	hiredis/adapters/macosx.h	/^static void redisMacOSDelWrite(void *privdata) {$/;"	f
+redisProcessCallbacks	hiredis/async.c	/^void redisProcessCallbacks(redisAsyncContext *ac) {$/;"	f
+redisReadTask	hiredis/read.h	/^typedef struct redisReadTask {$/;"	s
+redisReadTask	hiredis/read.h	/^} redisReadTask;$/;"	t	typeref:struct:redisReadTask
+redisReader	hiredis/read.h	/^typedef struct redisReader {$/;"	s
+redisReader	hiredis/read.h	/^} redisReader;$/;"	t	typeref:struct:redisReader
+redisReaderCreate	hiredis/hiredis.c	/^redisReader *redisReaderCreate(void) {$/;"	f
+redisReaderCreateWithFunctions	hiredis/read.c	/^redisReader *redisReaderCreateWithFunctions(redisReplyObjectFunctions *fn) {$/;"	f
+redisReaderFeed	hiredis/read.c	/^int redisReaderFeed(redisReader *r, const char *buf, size_t len) {$/;"	f
+redisReaderFree	hiredis/read.c	/^void redisReaderFree(redisReader *r) {$/;"	f
+redisReaderGetError	hiredis/read.h	105;"	d
+redisReaderGetObject	hiredis/read.h	104;"	d
+redisReaderGetReply	hiredis/read.c	/^int redisReaderGetReply(redisReader *r, void **reply) {$/;"	f
+redisReaderSetPrivdata	hiredis/read.h	103;"	d
+redisReconnect	hiredis/hiredis.c	/^int redisReconnect(redisContext *c) {$/;"	f
+redisReply	hiredis/hiredis.h	/^typedef struct redisReply {$/;"	s
+redisReply	hiredis/hiredis.h	/^} redisReply;$/;"	t	typeref:struct:redisReply
+redisReplyObjectFunctions	hiredis/read.h	/^typedef struct redisReplyObjectFunctions {$/;"	s
+redisReplyObjectFunctions	hiredis/read.h	/^} redisReplyObjectFunctions;$/;"	t	typeref:struct:redisReplyObjectFunctions
+redisSetBlocking	hiredis/net.c	/^static int redisSetBlocking(redisContext *c, int blocking) {$/;"	f	file:
+redisSetReuseAddr	hiredis/net.c	/^static int redisSetReuseAddr(redisContext *c) {$/;"	f	file:
+redisSetTcpNoDelay	hiredis/net.c	/^static int redisSetTcpNoDelay(redisContext *c) {$/;"	f	file:
+redisSetTimeout	hiredis/hiredis.c	/^int redisSetTimeout(redisContext *c, const struct timeval tv) {$/;"	f
+redis_source_add_read	hiredis/adapters/glib.h	/^redis_source_add_read (gpointer data)$/;"	f
+redis_source_add_write	hiredis/adapters/glib.h	/^redis_source_add_write (gpointer data)$/;"	f
+redis_source_check	hiredis/adapters/glib.h	/^redis_source_check (GSource *source)$/;"	f
+redis_source_cleanup	hiredis/adapters/glib.h	/^redis_source_cleanup (gpointer data)$/;"	f
+redis_source_del_read	hiredis/adapters/glib.h	/^redis_source_del_read (gpointer data)$/;"	f
+redis_source_del_write	hiredis/adapters/glib.h	/^redis_source_del_write (gpointer data)$/;"	f
+redis_source_dispatch	hiredis/adapters/glib.h	/^redis_source_dispatch (GSource      *source,$/;"	f
+redis_source_finalize	hiredis/adapters/glib.h	/^redis_source_finalize (GSource *source)$/;"	f
+redis_source_new	hiredis/adapters/glib.h	/^redis_source_new (redisAsyncContext *ac)$/;"	f
+redis_source_prepare	hiredis/adapters/glib.h	/^redis_source_prepare (GSource *source,$/;"	f
+redisvAppendCommand	hiredis/hiredis.c	/^int redisvAppendCommand(redisContext *c, const char *format, va_list ap) {$/;"	f
+redisvAsyncCommand	hiredis/async.c	/^int redisvAsyncCommand(redisAsyncContext *ac, redisCallbackFn *fn, void *privdata, const char *format, va_list ap) {$/;"	f
+redisvCommand	hiredis/hiredis.c	/^void *redisvCommand(redisContext *c, const char *format, va_list ap) {$/;"	f
+redisvFormatCommand	hiredis/hiredis.c	/^int redisvFormatCommand(char **target, const char *format, va_list ap) {$/;"	f
+replies	hiredis/async.h	/^    redisCallbackList replies;$/;"	m	struct:redisAsyncContext
+reply	hiredis/read.h	/^    void *reply; \/* Temporary reply pointer *\/$/;"	m	struct:redisReader
+rev	hiredis/adapters/libev.h	/^    ev_io rev, wev;$/;"	m	struct:redisLibevEvents
+rev	hiredis/adapters/libevent.h	/^    struct event *rev, *wev;$/;"	m	struct:redisLibeventEvents	typeref:struct:redisLibeventEvents::event
+ridx	hiredis/read.h	/^    int ridx; \/* Index of current read task *\/$/;"	m	struct:redisReader
+rstack	hiredis/read.h	/^    redisReadTask rstack[9];$/;"	m	struct:redisReader
+run	hiredis/examples/example-qt.cpp	/^void ExampleQt::run() {$/;"	f	class:ExampleQt
+runHeader	client/udpClientMain.cpp	/^static void* runHeader(void* arg)$/;"	f	file:
+runOutput	client/udpClientMain.cpp	/^static void* runOutput(void* arg)$/;"	f	file:
+s_free	hiredis/sdsalloc.h	42;"	d
+s_malloc	hiredis/sdsalloc.h	40;"	d
+s_realloc	hiredis/sdsalloc.h	41;"	d
 school	Json/DataType.h	/^		std::string school;$/;"	m	class:DataType
+sds	hiredis/sds.h	/^typedef char *sds;$/;"	t
+sdsAllocPtr	hiredis/sds.c	/^void *sdsAllocPtr(sds s) {$/;"	f
+sdsAllocSize	hiredis/sds.c	/^size_t sdsAllocSize(sds s) {$/;"	f
+sdsHdrSize	hiredis/sds.c	/^static inline int sdsHdrSize(char type) {$/;"	f	file:
+sdsIncrLen	hiredis/sds.c	/^void sdsIncrLen(sds s, int incr) {$/;"	f
+sdsMakeRoomFor	hiredis/sds.c	/^sds sdsMakeRoomFor(sds s, size_t addlen) {$/;"	f
+sdsRemoveFreeSpace	hiredis/sds.c	/^sds sdsRemoveFreeSpace(sds s) {$/;"	f
+sdsReqType	hiredis/sds.c	/^static inline char sdsReqType(size_t string_size) {$/;"	f	file:
+sdsTest	hiredis/sds.c	/^int sdsTest(void) {$/;"	f
+sds_free	hiredis/sds.c	/^void sds_free(void *ptr) { s_free(ptr); }$/;"	f
+sds_malloc	hiredis/sds.c	/^void *sds_malloc(size_t size) { return s_malloc(size); }$/;"	f
+sds_realloc	hiredis/sds.c	/^void *sds_realloc(void *ptr, size_t size) { return s_realloc(ptr,size); }$/;"	f
+sdsalloc	hiredis/sds.h	/^static inline size_t sdsalloc(const sds s) {$/;"	f
+sdsavail	hiredis/sds.h	/^static inline size_t sdsavail(const sds s) {$/;"	f
+sdscat	hiredis/sds.c	/^sds sdscat(sds s, const char *t) {$/;"	f
+sdscatfmt	hiredis/sds.c	/^sds sdscatfmt(sds s, char const *fmt, ...) {$/;"	f
+sdscatlen	hiredis/sds.c	/^sds sdscatlen(sds s, const void *t, size_t len) {$/;"	f
+sdscatprintf	hiredis/sds.c	/^sds sdscatprintf(sds s, const char *fmt, ...) {$/;"	f
+sdscatrepr	hiredis/sds.c	/^sds sdscatrepr(sds s, const char *p, size_t len) {$/;"	f
+sdscatsds	hiredis/sds.c	/^sds sdscatsds(sds s, const sds t) {$/;"	f
+sdscatvprintf	hiredis/sds.c	/^sds sdscatvprintf(sds s, const char *fmt, va_list ap) {$/;"	f
+sdsclear	hiredis/sds.c	/^void sdsclear(sds s) {$/;"	f
+sdscmp	hiredis/sds.c	/^int sdscmp(const sds s1, const sds s2) {$/;"	f
+sdscpy	hiredis/sds.c	/^sds sdscpy(sds s, const char *t) {$/;"	f
+sdscpylen	hiredis/sds.c	/^sds sdscpylen(sds s, const char *t, size_t len) {$/;"	f
+sdsdup	hiredis/sds.c	/^sds sdsdup(const sds s) {$/;"	f
+sdsempty	hiredis/sds.c	/^sds sdsempty(void) {$/;"	f
+sdsfree	hiredis/sds.c	/^void sdsfree(sds s) {$/;"	f
+sdsfreesplitres	hiredis/sds.c	/^void sdsfreesplitres(sds *tokens, int count) {$/;"	f
+sdsfromlonglong	hiredis/sds.c	/^sds sdsfromlonglong(long long value) {$/;"	f
+sdsgrowzero	hiredis/sds.c	/^sds sdsgrowzero(sds s, size_t len) {$/;"	f
+sdshdr16	hiredis/sds.h	/^struct __attribute__ ((__packed__)) sdshdr16 {$/;"	s
+sdshdr32	hiredis/sds.h	/^struct __attribute__ ((__packed__)) sdshdr32 {$/;"	s
+sdshdr5	hiredis/sds.h	/^struct __attribute__ ((__packed__)) sdshdr5 {$/;"	s
+sdshdr64	hiredis/sds.h	/^struct __attribute__ ((__packed__)) sdshdr64 {$/;"	s
+sdshdr8	hiredis/sds.h	/^struct __attribute__ ((__packed__)) sdshdr8 {$/;"	s
+sdsinclen	hiredis/sds.h	/^static inline void sdsinclen(sds s, size_t inc) {$/;"	f
+sdsjoin	hiredis/sds.c	/^sds sdsjoin(char **argv, int argc, char *sep) {$/;"	f
+sdsjoinsds	hiredis/sds.c	/^sds sdsjoinsds(sds *argv, int argc, const char *sep, size_t seplen) {$/;"	f
+sdslen	hiredis/sds.h	/^static inline size_t sdslen(const sds s) {$/;"	f
+sdsll2str	hiredis/sds.c	/^int sdsll2str(char *s, long long value) {$/;"	f
+sdsmapchars	hiredis/sds.c	/^sds sdsmapchars(sds s, const char *from, const char *to, size_t setlen) {$/;"	f
+sdsnew	hiredis/sds.c	/^sds sdsnew(const char *init) {$/;"	f
+sdsnewlen	hiredis/sds.c	/^sds sdsnewlen(const void *init, size_t initlen) {$/;"	f
+sdsrange	hiredis/sds.c	/^void sdsrange(sds s, int start, int end) {$/;"	f
+sdssetalloc	hiredis/sds.h	/^static inline void sdssetalloc(sds s, size_t newlen) {$/;"	f
+sdssetlen	hiredis/sds.h	/^static inline void sdssetlen(sds s, size_t newlen) {$/;"	f
+sdssplitargs	hiredis/sds.c	/^sds *sdssplitargs(const char *line, int *argc) {$/;"	f
+sdssplitlen	hiredis/sds.c	/^sds *sdssplitlen(const char *s, int len, const char *sep, int seplen, int *count) {$/;"	f
+sdstolower	hiredis/sds.c	/^void sdstolower(sds s) {$/;"	f
+sdstoupper	hiredis/sds.c	/^void sdstoupper(sds s) {$/;"	f
+sdstrim	hiredis/sds.c	/^sds sdstrim(sds s, const char *cset) {$/;"	f
+sdsull2str	hiredis/sds.c	/^int sdsull2str(char *s, unsigned long long v) {$/;"	f
+sdsupdatelen	hiredis/sds.c	/^void sdsupdatelen(sds s) {$/;"	f
+seekNewline	hiredis/read.c	/^static char *seekNewline(char *s, size_t len) {$/;"	f	file:
+select_database	hiredis/test.c	/^static redisContext *select_database(redisContext *c) {$/;"	f	file:
 sendData	server/udpServer.cpp	/^int UdpServer::sendData(std::string& outmsg,struct sockaddr_in* remote,socklen_t len)$/;"	f	class:UdpServer
+setContext	hiredis/adapters/qt.h	/^        int setContext(redisAsyncContext * ac) {$/;"	f	class:RedisQtAdapter
+size	hiredis/dict.h	/^    unsigned long size;$/;"	m	struct:dict
+sizemask	hiredis/dict.h	/^    unsigned long sizemask;$/;"	m	struct:dict
+snprintf	hiredis/win32.h	14;"	d
+socketRef	hiredis/adapters/macosx.h	/^    CFSocketRef socketRef;$/;"	m	struct:__anon7
+source	hiredis/adapters/glib.h	/^    GSource source;$/;"	m	struct:__anon8
+sourceRef	hiredis/adapters/macosx.h	/^    CFRunLoopSourceRef sourceRef;$/;"	m	struct:__anon7
+source_addr	hiredis/hiredis.h	/^        char *source_addr;$/;"	m	struct:redisContext::__anon3
+str	hiredis/hiredis.h	/^    char *str; \/* Used for both REDIS_REPLY_ERROR and REDIS_REPLY_STRING *\/$/;"	m	struct:redisReply
+sub	hiredis/async.h	/^    } sub;$/;"	m	struct:redisAsyncContext	typeref:struct:redisAsyncContext::__anon2
+table	hiredis/dict.h	/^    dictEntry **table;$/;"	m	struct:dict
+tail	hiredis/async.h	/^    redisCallback *head, *tail;$/;"	m	struct:redisCallbackList
+tcp	hiredis/hiredis.h	/^    } tcp;$/;"	m	struct:redisContext	typeref:struct:redisContext::__anon3
+tcp	hiredis/test.c	/^    } tcp;$/;"	m	struct:config	typeref:struct:config::__anon5	file:
+test	hiredis/test.c	38;"	d	file:
+test_append_formatted_commands	hiredis/test.c	/^static void test_append_formatted_commands(struct config config) {$/;"	f	file:
+test_blocking_connection	hiredis/test.c	/^static void test_blocking_connection(struct config config) {$/;"	f	file:
+test_blocking_connection_errors	hiredis/test.c	/^static void test_blocking_connection_errors(void) {$/;"	f	file:
+test_blocking_connection_timeouts	hiredis/test.c	/^static void test_blocking_connection_timeouts(struct config config) {$/;"	f	file:
+test_blocking_io_errors	hiredis/test.c	/^static void test_blocking_io_errors(struct config config) {$/;"	f	file:
+test_cond	hiredis/test.c	39;"	d	file:
+test_format_commands	hiredis/test.c	/^static void test_format_commands(void) {$/;"	f	file:
+test_free_null	hiredis/test.c	/^static void test_free_null(void) {$/;"	f	file:
+test_invalid_timeout_errors	hiredis/test.c	/^static void test_invalid_timeout_errors(struct config config) {$/;"	f	file:
+test_reply_reader	hiredis/test.c	/^static void test_reply_reader(void) {$/;"	f	file:
+test_throughput	hiredis/test.c	/^static void test_throughput(struct config config) {$/;"	f	file:
+tests	hiredis/test.c	/^static int tests = 0, fails = 0;$/;"	v	file:
+timeout	hiredis/hiredis.h	/^    struct timeval *timeout;$/;"	m	struct:redisContext	typeref:struct:redisContext::timeval
+timeout	hiredis/test.c	/^        struct timeval timeout;$/;"	m	struct:config::__anon5	typeref:struct:config::__anon5::timeval	file:
+type	hiredis/dict.h	/^    dictType *type;$/;"	m	struct:dict
+type	hiredis/hiredis.h	/^    int type; \/* REDIS_REPLY_* *\/$/;"	m	struct:redisReply
+type	hiredis/read.h	/^    int type;$/;"	m	struct:redisReadTask
+type	hiredis/test.c	/^    enum connection_type type;$/;"	m	struct:config	typeref:enum:config::connection_type	file:
+uname_S	hiredis/Makefile	/^uname_S := $(shell sh -c 'uname -s 2>\/dev\/null || echo not')$/;"	m
+unix_sock	hiredis/hiredis.h	/^    } unix_sock;$/;"	m	struct:redisContext	typeref:struct:redisContext::__anon4
+unix_sock	hiredis/test.c	/^    } unix_sock;$/;"	m	struct:config	typeref:struct:config::__anon6	file:
+usec	hiredis/test.c	/^static long long usec(void) {$/;"	f	file:
+used	hiredis/dict.h	/^    unsigned long used;$/;"	m	struct:dict
 userlist	server/udpServer.h	/^		map<in_addr_t,struct sockaddr_in> userlist;$/;"	m	class:UdpServer
+va_copy	hiredis/win32.h	10;"	d
+val	hiredis/dict.h	/^    void *val;$/;"	m	struct:dictEntry
+valDestructor	hiredis/dict.h	/^    void (*valDestructor)(void *privdata, void *obj);$/;"	m	struct:dictType
+valDup	hiredis/dict.h	/^    void *(*valDup)(void *privdata, const void *obj);$/;"	m	struct:dictType
+wev	hiredis/adapters/libev.h	/^    ev_io rev, wev;$/;"	m	struct:redisLibevEvents
+wev	hiredis/adapters/libevent.h	/^    struct event *rev, *wev;$/;"	m	struct:redisLibeventEvents	typeref:struct:redisLibeventEvents::
+winRefresh	window/window.cpp	/^void Window::winRefresh(WINDOW *win)$/;"	f	class:Window
+write	hiredis/adapters/qt.h	/^        void write() { redisAsyncHandleWrite(m_ctx); }$/;"	f	class:RedisQtAdapter
+writing	hiredis/adapters/ae.h	/^    int reading, writing;$/;"	m	struct:redisAeEvents
+writing	hiredis/adapters/libev.h	/^    int reading, writing;$/;"	m	struct:redisLibevEvents
 ~DataType	Json/DataType.cpp	/^DataType::~DataType()$/;"	f	class:DataType
 ~Pool	pool/pool.cpp	/^Pool::~Pool()$/;"	f	class:Pool
+~RedisQtAdapter	hiredis/adapters/qt.h	/^        ~RedisQtAdapter() {$/;"	f	class:RedisQtAdapter
 ~UdpClient	client/udpClient.cpp	/^UdpClient::~UdpClient()$/;"	f	class:UdpClient
 ~UdpServer	server/udpServer.cpp	/^UdpServer::~UdpServer()$/;"	f	class:UdpServer
+~Window	window/window.cpp	/^Window::~Window()$/;"	f	class:Window

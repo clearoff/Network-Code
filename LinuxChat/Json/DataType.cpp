@@ -1,13 +1,17 @@
 #include "DataType.h"
 using namespace std;
+
+
 DataType::DataType(const string _name,const string _school,const string _cmd,const string _msg):
 	name(_name),
 	school(_school),
 	cmd(_cmd),
 	msg(_msg)
 {}
+
 DataType::~DataType()
 {}
+
 void DataType::ValToString(const Json::Value val,std::string& out)
 {
 //	Json::Value val;

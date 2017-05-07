@@ -37,6 +37,7 @@ int main(int argc,char* argv[])
 	std::string ip=argv[1];
 	int port = atoi(argv[2]);
 	UdpServer svr(ip,port);
+	cout<<"Begin::init"<<endl;
 	svr.Init();
 	pthread_t product;
 	pthread_t consum;

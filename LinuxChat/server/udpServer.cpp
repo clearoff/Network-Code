@@ -1,6 +1,7 @@
 #include "udpServer.h"
+#include "../Json/DataType.h"
 
-UdpServer::UdpServer(const std::string ip,const int port):
+UdpServer::UdpServer(const std::string&  ip,const int&  port):
 	_port(port),
 	_ip(ip),
 	pool()
@@ -31,6 +32,7 @@ void UdpServer::Init()
 
 bool UdpServer::RecvData(std::string& outmsg)
 {
+	Json::Value val;
 	char buf[1024];
 	struct sockaddr_in remote;
 	socklen_t len=sizeof(remote);
@@ -42,11 +44,20 @@ bool UdpServer::RecvData(std::string& outmsg)
 		return false;
 	}
 	buf[_s]='\0';
+	std::string tmp=buf;
+	DataType::StrToValue(tmp,val);
+	std::string cmd=val["cmd"].asString();
 	outmsg = buf;
-	// insert client user into userlist
-	userlist.insert(pair<in_addr_t,struct sockaddr_in>\
+	if(cmd=="QUIT")
+	{
+		userlist.erase(remote.sin_addr.s_addr);
+	}
+	else
+	{
+		userlist.insert(pair<in_addr_t,struct sockaddr_in>\
 			(remote.sin_addr.s_addr,remote));
-	pool.PutData(buf);
+	}
+	pool.PutData(outmsg.c_str());
 	return true;
 }
 
@@ -71,6 +82,7 @@ bool UdpServer::broadCast(std::string& outmsg)
 int UdpServer::sendData(std::string& outmsg,struct sockaddr_in* remote,socklen_t len)
 {
 	pool.GetData(outmsg);
+	cout<<outmsg<<endl;
 	size_t _s;
 	_s=sendto(_sock,outmsg.c_str(),outmsg.size(),0,\
 		(struct sockaddr*)remote ,len);	

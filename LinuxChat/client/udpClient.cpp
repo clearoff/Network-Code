@@ -1,6 +1,8 @@
 #include "udpClient.h"
+#include "../Json/DataType.h"
 
 using namespace std;
+
 UdpClient::UdpClient(const std::string& ip,const int& port)
 	:peer_ip(ip)
 	,peer_port(port)
@@ -27,6 +29,8 @@ void UdpClient::Init()
 
 int UdpClient::RecvData(std::string& outmsg)
 {
+	Json::Value val;
+	std::string msg="";
 	char buf[1024];
 	struct sockaddr_in peer;
 	socklen_t len = sizeof(peer);
@@ -36,7 +40,7 @@ int UdpClient::RecvData(std::string& outmsg)
 		return -1;
 	}
 	buf[_s] = '\0';
-	outmsg = buf;
+	outmsg=buf;
 	return _s;
 }
 

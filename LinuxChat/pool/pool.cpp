@@ -27,7 +27,10 @@ void Pool::PutData(const string& inmsg)
 {
 	//product
 	sem_wait(&_blank);
+	cout<<"Insret Data"<<endl;
+	cout<<productStep<<endl;
 	pool[productStep]=inmsg;
+	cout<<"Insert off"<<endl;
 	productStep++;
 	productStep %= _cap;
 	_size++;

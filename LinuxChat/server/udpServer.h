@@ -7,9 +7,12 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <cassert>
 #include <cstdlib>
 #include <map>
 #include <unistd.h>
+#include <cstdio>
+#include <vector>
 #include "../pool/pool.h"
 
 class UdpServer{
@@ -18,15 +21,19 @@ class UdpServer{
 		int _port;
 		std::string _ip;
 		map<in_addr_t,struct sockaddr_in> userlist;
-		Pool pool;
 	private:
 		UdpServer(const UdpServer&);
 	public:
-		UdpServer(const std::string& ip,const int& port);
+		Pool pool;
+		int SessionCount;
+		std::vector<std::string> session;
+		UdpServer(std::string ip,int port);
 		void Init();
 		bool RecvData(std::string&);
 		bool broadCast(std::string&);
 		int sendData(std::string&,struct sockaddr_in*,socklen_t);
+		int SaveToRedis(std::string& msg);
+		int GetFromRedis(std::string& out);
 		~UdpServer();
 };
 

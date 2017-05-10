@@ -1,14 +1,48 @@
 #include "udpServer.h"
+#include "../Json/DataType.h"
+#include "../redis-lib/redis_api.h"
 
 using namespace std;
+
+#define KEY_MAX 512
+
+static std::string _itoa(int num)
+{
+	char buf[8];
+	sprintf(buf,"%d",num);
+	return buf;
+}
 
 static void* productRun(void* arg)
 {
 	UdpServer* psvr=(UdpServer*)arg;
 	std::string msg;
+	RedisApi _redis;
+	string Info="key";
+	string tmp;
+	string value;
+	Json::Value val;
 	while(1){
+		tmp = "";
 		psvr->RecvData(msg);
 		cout<<"client:"<<msg<<endl;
+		DataType::StrToValue(msg,val);
+
+		if("LOAD"==val["msg"].asString()){
+			vector<string>::iterator iter=(psvr->session).begin();
+			string out;
+			while(iter!=(psvr->session).end()){
+				_redis.GetData(*iter,out);	
+				(psvr->pool).PutData(out);
+				iter++;
+			}
+		}else{
+			tmp = Info + _itoa(psvr->SessionCount);  
+			psvr->SessionCount++;
+			(psvr->SessionCount) %= KEY_MAX;
+			(psvr->session).push_back(tmp);
+			_redis.InsertDb(tmp,msg);	
+		}
 		sleep(1);
 	}
 
@@ -36,8 +70,8 @@ int main(int argc,char* argv[])
 	cout<<"port"<<atoi(argv[2])<<endl;
 	std::string ip=argv[1];
 	int port = atoi(argv[2]);
-	UdpServer svr(ip,port);
 	cout<<"Begin::init"<<endl;
+	UdpServer svr(ip,port);
 	svr.Init();
 	pthread_t product;
 	pthread_t consum;

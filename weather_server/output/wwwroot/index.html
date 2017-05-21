@@ -1,0 +1,35 @@
+<html>
+	<body background="./weather.jpg">
+		<h1>
+			Welcome to leap server!
+		</h1>
+		<p>
+			<img src="./pika.jpg" width="50" height="50" />
+		</p>
+			<h2>Insert data!<br/></h2>
+			<form action="/cgi/cgi_sql", method="POST">
+				Please Enter Your name: <input type="text" name="v1"/><br>
+				Please Enter Your sex: <input type="text" name="v2"/><br>
+				Please Enter Your major: <input type="text" name="v3"/><br>
+				<input type="submit" value="Insert"/>
+			</form>
+			<h2>select data!<br/></h2>
+			<form action="/cgi/cgi_show", method="POST">
+				Please Enter Your name: <input type="text" name="v1"/><br>
+				<input type="submit" value="Select"/>
+			</form>
+			<h2>Register User!<br/></h2>
+			<form action="/cgi/register", method="POST">
+				Please Enter Your name: <input type="text" name="v1"/><br>
+				Please Enter Your E-mail: <input type="text" name="v2"/><br>
+				<input type="submit" value="Insert"/>
+			</form>
+			<h2>PUSH Weather!<br/></h2>
+			<form action="/cgi/weather_show", method="POST">
+				Select this: <input type="text" name="Weather Push"/><br>
+				<input type="submit" value="Select"/>
+			</form>
+	</body>
+</html>
+	</body>
+</html>

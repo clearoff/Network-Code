@@ -1,0 +1,23 @@
+city:西安
+
+update time:2017-05-21 周日10:40
+date:05-21		day:局部多云(32°C )		night:阴天( 20°C)
+
+date:05-22		day:局部多云(23°C )		night:雨( 14°C)
+
+date:05-23		day:局部多云(29°C )		night:少云( 15°C)
+
+date:05-24		day:局部多云(31°C )		night:局部多云( 14°C)
+
+date:05-25		day:局部多云(33°C )		night:少云( 16°C)
+
+date:05-26		day:晴(34°C )		night:晴( 17°C)
+
+date:05-27		day:局部多云(35°C )		night:晴( 19°C)
+
+date:05-28		day:局部多云(35°C )		night:局部多云( 21°C)
+
+date:05-29		day:局部多云(36°C )		night:晴( 21°C)
+
+date:05-30		day:局部多云(34°C )		night:局部多云( 19°C)
+

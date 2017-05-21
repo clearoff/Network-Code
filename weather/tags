@@ -1,0 +1,36 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AcceptRun	main.c	/^static void* AcceptRun(void* arg)$/;"	f	file:
+BUF_SIZE	httpd.h	24;"	d
+FATAL	httpd.h	22;"	d
+HOME	httpd.h	20;"	d
+HandleSock	httpd.c	/^int HandleSock(int sock)$/;"	f
+LogCount	httpd.c	/^static size_t LogCount=0;$/;"	v	file:
+NORMAL	httpd.h	21;"	d
+PrintLog	httpd.c	/^void PrintLog(const char *msg,int Level)$/;"	f
+StartUp	httpd.c	/^int StartUp(const char *_ip,int port)$/;"	f
+Usege	main.c	/^static void Usege(const char* arg)$/;"	f	file:
+WARNING	httpd.h	23;"	d
+_HTTPD_H__	httpd.h	2;"	d
+clean_hander	httpd.c	/^static void clean_hander(int sock)$/;"	f	file:
+echo_code	httpd.c	/^static void echo_code(int sock,const char* code)$/;"	f	file:
+echo_html	httpd.c	/^static int echo_html(int sock,const char* path,ssize_t size)$/;"	f	file:
+excu_cgi	httpd.c	/^static int excu_cgi(int sock,const char*path,\\$/;"	f	file:
+exec_calc	output/wwwroot/cgi/cgi_add.c	/^void exec_calc(char* arg){$/;"	f
+exec_calc	wwwroot/cgi/cgi_add.c	/^void exec_calc(char* arg){$/;"	f
+get_line	httpd.c	/^int get_line(int sock,char *buf,int size)$/;"	f
+http_restart	http_ctl.sh	/^function http_restart(){$/;"	f
+http_restart	output/http_ctl.sh	/^function http_restart(){$/;"	f
+http_start	http_ctl.sh	/^function http_start(){$/;"	f
+http_start	output/http_ctl.sh	/^function http_start(){$/;"	f
+http_stop	http_ctl.sh	/^function http_stop(){$/;"	f
+http_stop	output/http_ctl.sh	/^function http_stop(){$/;"	f
+main	main.c	/^int main(int argc,char* argv[])$/;"	f
+main	output/wwwroot/cgi/cgi_add.c	/^int main()$/;"	f
+main	wwwroot/cgi/cgi_add.c	/^int main()$/;"	f
+useage	http_ctl.sh	/^function useage(){$/;"	f
+useage	output/http_ctl.sh	/^function useage(){$/;"	f
